@@ -8,7 +8,7 @@ class Deck(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     deckName = db.Column(db.String(30), nullable=False)
     category = db.Column(db.String(40))
-    usersId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     #? Many-to-one relationship between decks and users
     users = db.relationship("User", back_populates="decks")
