@@ -11,7 +11,7 @@ class Character(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     kanjiCharacter = db.Column(db.String(20), nullable=False)
     grade = db.Column(db.Integer)
-    strokeCount = db.Column(db.Integer, nullable=False)
+    strokeCount = db.Column(db.Integer)
     meanings = db.Column(db.String(750))
     kunReadings = db.Column(db.String(750))
     onReadings = db.Column(db.String(750))
