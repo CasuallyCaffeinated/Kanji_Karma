@@ -31,7 +31,15 @@ class Deck(db.Model):
     def to_dict_users(self):
         return {
        "id": self.id,
-      "deckName": self.deckName,
-      "category": self.category,
-      "users": [user.to_dict() for user in self.users]
+       "deckName": self.deckName,
+       "category": self.category,
+       "users": [user.to_dict() for user in self.users]
     }
+
+    def to_dict_characters(self):
+        return {
+            "id": self.id,
+            "deckName": self.deckName,
+            "category": self.category,
+            "characters": [character.to_dict() for character in self.characters]
+        }

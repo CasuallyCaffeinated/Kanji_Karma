@@ -55,3 +55,12 @@ class User(db.Model, UserMixin):
       "email": self.email,
       "decks": [deck.to_dict() for deck in self.decks]
     }
+
+  def to_dict_decks(self):
+    return {
+      "id": self.id,
+      "name": self.name,
+      "username": self.username,
+      "email": self.email,
+      "characters": [character.to_dict() for character in self.characters]
+    }
