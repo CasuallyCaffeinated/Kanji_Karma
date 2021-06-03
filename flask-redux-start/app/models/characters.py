@@ -1,4 +1,6 @@
 from .db import db
+from .users_characters import users_characters
+from .decks_characters import decks_characters
 
 #things to do:
 
@@ -18,4 +20,16 @@ class Character(db.Model):
     unicode = db.Column(db.String(100), nullable=False),
     heisigEn = db.Column(db.String(250))
 
-    
+    #? Many-to-many relationship between Kanji Characters and Users
+    users = db.relationship (
+        "User",
+        secondary=users_characters,
+        back_populates="characters"
+    )
+
+    #? Many-to-many relationship between Kanji Characters and Decks
+    decks = db.relationship (
+        "Deck",
+        secondary=decks_characters,
+        back_populates="characters"
+    )
