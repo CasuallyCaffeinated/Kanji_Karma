@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
 
   # One-to-many relationship between Users and Decks (of cards)
-  decks = db.relationship("Deck", back_populates="users")
+  decks = db.relationship("Deck", back_populates="user")
 
   #? Many-to-many relationship between Users and Kanji Characters.
   characters = db.relationship (

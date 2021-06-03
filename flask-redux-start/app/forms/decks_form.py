@@ -1,3 +1,4 @@
+from werkzeug.utils import validate_arguments
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
 from wtforms.validators import DataRequired, Length
@@ -8,3 +9,6 @@ class NewDeckForm(FlaskForm):
     category = StringField("category")
     userId = IntegerField("userId", validators=[DataRequired()])
     submit = SubmitField("submit")
+
+class AddToDeck(FlaskForm):
+    characterId = IntegerField("characterId", validator=[DataRequired()])
