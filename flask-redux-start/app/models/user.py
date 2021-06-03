@@ -1,22 +1,9 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .users_characters import users_characters
 
-users_characters = db.Table (
-  "users_characters",
-  db.Column (
-    "usersId",
-    db.Integer,
-    db.ForeignKey("users.id"),
-    primary_key=True
-  ),
-  db.Column (
-    "charactersId",
-    db.Integer,
-    db.ForeignKey("characters.id"),
-    primary_key=True
-  )
-)
+
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -67,4 +54,13 @@ class User(db.Model, UserMixin):
       "username": self.username,
       "email": self.email,
       "decks": [deck.to_dict() for deck in self.decks]
+    }
+
+  def to_dict_decks(self):
+    return {
+      "id": self.id,
+      "name": self.name,
+      "username": self.username,
+      "email": self.email,
+      "characters": [character.to_dict() for character in self.characters]
     }

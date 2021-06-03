@@ -6,8 +6,12 @@ def seed_users():
 
     demo = User(name="Demo", username='Demo', email='demo@aa.io',
                 password='password')
-
     db.session.add(demo)
+
+    kanjiKing = User(name="Yamamoto", username="yamasan", email="yama@japan.io",
+     password='password')
+    db.session.add(kanjiKing)
+    
 
     db.session.commit()
 
