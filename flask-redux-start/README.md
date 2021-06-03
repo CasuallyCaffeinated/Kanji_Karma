@@ -90,7 +90,9 @@ This is the backend for the Flask React project.
 
    ```bash
    heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
+   heroku run -a kanji-karma flask db upgrade
    heroku run -a {NAME_OF_HEROKU_APP} flask seed all
+   heroku run -a kanji-karma flask seed all
    ```
 
 10. Under Settings find "Config Vars" and add any additional/secret .env variables.

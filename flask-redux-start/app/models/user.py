@@ -2,6 +2,22 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+users_characters = db.Table (
+  "users_characters",
+  db.Column (
+    "usersId",
+    db.Integer,
+    db.ForeignKey("users.id"),
+    primary_key=True
+  ),
+  db.Column (
+    "charactersId",
+    db.Integer,
+    db.ForeignKey("characters.id"),
+    primary_key=True
+  )
+)
+
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
@@ -10,6 +26,16 @@ class User(db.Model, UserMixin):
   username = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+
+  # One-to-many relationship between Users and Decks (of cards)
+  decks = db.relationship("Deck", back_populates="users")
+
+  #? Many-to-many relationship between Users and Kanji Characters.
+  characters = db.relationship (
+    "Character",
+    secondary=users_characters,
+    back_populates="users"
+  )
 
 
   @property
@@ -32,4 +58,13 @@ class User(db.Model, UserMixin):
       "name": self.name,
       "username": self.username,
       "email": self.email
+    }
+
+  def to_dict_decks(self):
+    return {
+      "id": self.id,
+      "name": self.name,
+      "username": self.username,
+      "email": self.email,
+      "decks": [deck.to_dict() for deck in self.decks]
     }
