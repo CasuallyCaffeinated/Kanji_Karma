@@ -66,5 +66,25 @@ def post_to_deck(id):
 
             db.session.commit()
 
-            return deck.to_dict_users()
+            return deck.to_dict_characters()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+#####? EDIT DECK OF CARDS #####
+@decks_routes.route("/<int:id>", methods=["PUT"])
+def edit_deck(id):
+    form = NewDeckForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        data = form.data
+        deck_to_update = Deck.query.get(id)
+        deck_to_update.deckName=data['deckName']
+        deck_to_update.category=data["category"]
+        deck_to_update.userId=data["userId"]
+
+        db.session.add(deck_to_update)
+
+        db.session.commit()
+
+        return deck_to_update.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401

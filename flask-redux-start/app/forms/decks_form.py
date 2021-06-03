@@ -12,3 +12,4 @@ class NewDeckForm(FlaskForm):
 
 class AddToDeck(FlaskForm):
     characterId = IntegerField("characterId", validator=[DataRequired()])
+    # This might throw an error if I don't have a Submit field? check in the future
