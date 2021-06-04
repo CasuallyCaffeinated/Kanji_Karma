@@ -56,7 +56,7 @@ class User(db.Model, UserMixin):
       "decks": [deck.to_dict() for deck in self.decks]
     }
 
-  def to_dict_decks(self):
+  def to_dict_characters(self):
     return {
       "id": self.id,
       "name": self.name,
