@@ -28,8 +28,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('deckName', sa.String(length=30), nullable=False),
     sa.Column('category', sa.String(length=40), nullable=True),
-    sa.Column('usersId', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['usersId'], ['users.id'], ),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users_characters',
