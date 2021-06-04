@@ -12,7 +12,7 @@ const getUsers = (users) => ({
     payload: users
 });
 
-const getUsers = (user) => ({
+const getUser = (user) => ({
     type: GET_USER,
     payload: user
 });
@@ -55,7 +55,7 @@ export const updateUser = (id, {
     password
 }) => async dispatch => {
     const response = await fetch(`/api/users/${id}`, {
-        method= "PUT",
+        method:"PUT",
         headers: {
             'Content-Type': 'application/json'
         },
