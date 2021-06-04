@@ -11,7 +11,7 @@ class Deck(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     #? Many-to-one relationship between decks and users
-    users = db.relationship("User", back_populates="decks")
+    user = db.relationship("User", back_populates="decks", uselist=False)
 
       #? Many-to-many relationship between Decks and Kanji Characters
     characters = db.relationship (
@@ -28,12 +28,12 @@ class Deck(db.Model):
       "category": self.category
     }
 
-    def to_dict_users(self):
+    def to_dict_user(self):
         return {
        "id": self.id,
        "deckName": self.deckName,
        "category": self.category,
-       "users": [user.to_dict() for user in self.users]
+       "user": self.user.to_dict()
     }
 
     def to_dict_characters(self):
