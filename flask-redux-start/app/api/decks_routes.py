@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Deck, User, Character
+from app.models import db, Deck, Character
 from flask_login import current_user
 from app.forms import NewDeckForm, AddToDeck, RemoveFromDeck
 

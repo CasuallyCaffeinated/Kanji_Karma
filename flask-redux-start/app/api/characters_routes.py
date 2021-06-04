@@ -1,5 +1,5 @@
-from flask import Blueprint, request
-from app.models import db, Character
+from flask import Blueprint
+from app.models import Character
 
 
 characters_routes = Blueprint('characters', __name__, url_prefix="/api/characters")
@@ -18,5 +18,3 @@ def characters():
 def character(id):
     character = Character.query.get(id)
     return character.to_dict()
-
-
