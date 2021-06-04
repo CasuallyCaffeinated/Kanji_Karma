@@ -32,6 +32,10 @@ def deck(id):
     deck = Deck.query.get(id)
     return deck.to_dict()
 
+@decks_routes.route("/<int:id>/chars")
+def get_decks_characters(id):
+    deck = Deck.query.get(id)
+    return deck.to_dict_characters()
 
 
 ###################? POST NEW DECK ###################
@@ -132,8 +136,19 @@ def remove_card(id):
 ###################? DELETE ALL CARDS IN A DECK? ###################
 @decks_routes.route("/<int:id>/remove-all", methods=["DELETE"])
 def remove_cards(id):
-    db.session.execute(f"""DELETE FROM decks_characters
-    WHERE "decksId" = {id};""")
-    db.session.commit()
+    # db.session.execute(f"""DELETE FROM decks_characters
+    # WHERE "decksId" = {id};""")
+    # db.session.commit()
+
+    deck = Deck.query.get(id)
+    for character in deck.characters:
+        deck.characters.remove(character)
+        db.session.commit()
+
+    print("TEST", deck.characters)
 
     return "Deleted all the characters that belong to this deck!"
+
+    # deck = Deck.query.get(id)
+    # for card on deck.characters:
+    #    db.session.delete(card)
