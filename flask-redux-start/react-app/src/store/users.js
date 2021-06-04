@@ -43,7 +43,7 @@ export const getAllUsers = () => async dispatch => {
 };
 
 //! Get one
-export const getOneUser = (id) => async dispatch => {
+export const getUser = (id) => async dispatch => {
     const response = await fetch(`/api/users/${id}`)
     if (response.ok) {
         const data = await response.json()
@@ -116,7 +116,7 @@ export default function userReducer(state = initialState, action) {
             newState = Object.assign({}, state);
             newState.users[action.payload.id] = action.payload;
                 return newState;
-                
+
         case DELETE_CARD_FROM_USER:
             newState = Object.assign({}, state)
             delete newState.user[action.payload] //? NOTE TO SELF: CHECK THIS OUT LATER IF IT THROWS AN ERROR
