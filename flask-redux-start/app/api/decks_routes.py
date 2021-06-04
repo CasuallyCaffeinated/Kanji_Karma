@@ -103,14 +103,15 @@ def edit_deck(id):
 ###################? DELETE DECK ###################
 @decks_routes.route("/<int:id>", methods=["DELETE"])
 def delete_team(id):
-    deck_to_delete = Deck.query.get(id)
-    db.session.delete(deck_to_delete)
-    db.session.commit()
-    return "Deck successfully delete", deck_to_delete.to_dict()
+        deck_to_delete = Deck.query.get(id)
+        db.session.delete(deck_to_delete)
+        db.session.commit()
+        return "Deck successfully delete"
+
 
 
 ###################? DELETE CARD IN  DECK ###################
-@decks_routes.route("/<int:id>", methods=["DELETE"])
+@decks_routes.route("/<int:id>/remove-char", methods=["DELETE"])
 def remove_card(id):
     form = RemoveFromDeck()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -126,6 +127,9 @@ def remove_card(id):
         db.session.commit()
 
         return deck.to_dict_characters()
-
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 ###################? DELETE ALL CARDS IN A DECK? ###################
+@decks_routes.route("/<int:id>/remove-all", methods=["DELETE"])
+def remove_cards(id):
+    pass
