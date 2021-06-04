@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 ###################? GET ALL DECKS ###################
-@decks_routes.route("/") #"/api/messages/"
+@decks_routes.route("/") #"/api/decks/"
 def decks():
     decks = Deck.query.all()
     # print("     TEST", decks[0].user)
