@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import db, Deck, User, Character
+from app.models import db, Deck, Character
 from flask_login import current_user
 from app.forms import NewDeckForm, AddToDeck, RemoveFromDeck
 
@@ -18,7 +18,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 ###################? GET ALL DECKS ###################
-@decks_routes.route("/") #"/api/messages/"
+@decks_routes.route("/") #"/api/decks/"
 def decks():
     decks = Deck.query.all()
     # print("     TEST", decks[0].user)
@@ -132,4 +132,8 @@ def remove_card(id):
 ###################? DELETE ALL CARDS IN A DECK? ###################
 @decks_routes.route("/<int:id>/remove-all", methods=["DELETE"])
 def remove_cards(id):
-    pass
+    db.session.execute(f"""DELETE FROM decks_characters
+    WHERE "decksId" = {id};""")
+    db.session.commit()
+
+    return "Deleted all the characters that belong to this deck!"

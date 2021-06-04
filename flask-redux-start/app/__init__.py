@@ -9,7 +9,8 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.decks_routes import decks_routes
-# from .api.characters_routes import
+from .api.characters_routes import characters_routes
+from .api.search_routes import search_routes
 
 #TODO: Finish all routes, import them here, register their blueprints
 
@@ -36,6 +37,8 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(decks_routes)
+app.register_blueprint(characters_routes)
+app.register_blueprint(search_routes)
 db.init_app(app)
 Migrate(app, db)
 
