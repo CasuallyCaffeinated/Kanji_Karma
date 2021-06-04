@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import db, Deck, User, Character
 from flask_login import current_user
-from app.forms import NewDeckForm, AddToDeck
+from app.forms import NewDeckForm, AddToDeck, RemoveFromDeck
 
 decks_routes = Blueprint('decks', __name__, url_prefix="/api/decks")
 
@@ -16,20 +16,25 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-############? GET ALL DECKS ##########
+
+###################? GET ALL DECKS ###################
 @decks_routes.route("/") #"/api/messages/"
 def decks():
     decks = Deck.query.all()
     # print("     TEST", decks[0].user)
     return {"decks": [deck.to_dict() for deck in decks]}
 
-############? GET ONE ##########
+
+
+###################? GET ONE DECK ###################
 @decks_routes.route("/<int:id>")
 def deck(id):
     deck = Deck.query.get(id)
     return deck.to_dict()
 
-############? POST NEW DECK ##########
+
+
+###################? POST NEW DECK ###################
 @decks_routes.route("/", methods=["POST"])
 def create_new_deck():
         form = NewDeckForm()
@@ -50,7 +55,9 @@ def create_new_deck():
             return new_deck.to_dict()
         return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
-######? ADD CHARACTER TO DECK ######
+
+
+###################? ADD CHARACTER TO DECK ###################
 @decks_routes.route("/<int:id>", methods=["POST"])
 def post_to_deck(id):
     form = AddToDeck()
@@ -69,7 +76,9 @@ def post_to_deck(id):
             return deck.to_dict_characters()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
-#####? EDIT DECK OF CARDS #####
+
+
+###################? EDIT DECK OF CARDS ###################
 @decks_routes.route("/<int:id>", methods=["PUT"])
 def edit_deck(id):
     form = NewDeckForm()
@@ -88,3 +97,35 @@ def edit_deck(id):
 
         return deck_to_update.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+###################? DELETE DECK ###################
+@decks_routes.route("/<int:id>", methods=["DELETE"])
+def delete_team(id):
+    deck_to_delete = Deck.query.get(id)
+    db.session.delete(deck_to_delete)
+    db.session.commit()
+    return "Deck successfully delete", deck_to_delete.to_dict()
+
+
+###################? DELETE CARD IN  DECK ###################
+@decks_routes.route("/<int:id>", methods=["DELETE"])
+def remove_card(id):
+    form = RemoveFromDeck()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        data = form.data
+        characterId = data["characterId"]
+        character = Character.query.get(characterId)
+        deck = Deck.query.get(id)
+
+        deck.characters.remove(character)
+
+        db.session.commit()
+
+        return deck.to_dict_characters()
+
+
+###################? DELETE ALL CARDS IN A DECK? ###################

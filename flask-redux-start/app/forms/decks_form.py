@@ -14,3 +14,7 @@ class AddToDeck(FlaskForm):
     characterId = IntegerField("characterId", validators=[DataRequired(),
     NumberRange(min=1, max=2136, message="Kanji index in out of range! Could not find that kanji.")])
     # This might throw an error if I don't have a Submit field? check in the future
+
+class RemoveFromDeck(FlaskForm):
+    characterId = IntegerField("characterId", validators=[DataRequired(),
+    NumberRange(min=1, max=2136, message="Kanji index in out of range! Could not find that kanji.")])
