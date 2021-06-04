@@ -12,3 +12,11 @@ def characters():
     return {"characters": [character.to_dict() for character in characters]}
 
 
+
+####################! GET A CHARACTER ####################
+@characters_routes.route("/<int:id>")
+def character(id):
+    character = Character.query.get(id)
+    return character.to_dict()
+
+
