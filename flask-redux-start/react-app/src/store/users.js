@@ -38,7 +38,7 @@ export const getAllUsers = () => async dispatch => {
         const data = await response.json();
         await dispatch(getUsers(data.users))
     } else {
-        return {error: "An error occurred. Please try again."}
+        return {errors: "An error occurred. Please try again."}
     }
 };
 
@@ -49,7 +49,7 @@ export const getUser = (id) => async dispatch => {
         const data = await response.json()
         await dispatch(getOneUser(data))
     } else {
-        return {error: "An error occurred. Please try again."}
+        return {errors: "An error occurred. Please try again."}
     }
 }
 

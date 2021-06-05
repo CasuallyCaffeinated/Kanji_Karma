@@ -60,6 +60,177 @@ export const getAllDecks = () => async dispatch => {
         const data = await res.json();
         await dispatch(getDecks(data.decks))
     } else {
-        return {error: "An error occurred. Please try again."}
+        return {errors: "An error occurred. Please try again."}
+    }
+}
+
+//! Get one
+export const getDeck = (id) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}`)
+
+    if (res.ok) {
+        const data = await res.json()
+        await dispatch(getOneDeck(data))
+    } else {
+        return {errors: "An error occurred. Please try again."}
+    }
+}
+
+//! Create one deck
+export const createDeck = (id, {
+    deckName,
+    category,
+    userId
+}) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}`, {
+        method: `POST`,
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+            deckName,
+            category,
+            userId
+        })
+    })
+    const data = await res.json()
+    if (data.errors) {
+        return data
+    }
+
+    dispatch(addDeck(data))
+}
+
+//! Add Character Card to Deck
+export const addCharCardToDeck= (deckId, cardId) => async dispatch => {
+    const res = await fetch(`/api/decks/${deckId}`, {
+        method: `POST`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cardId
+        })
+    })
+    const data = await res.json()
+    if (data.errors) {
+        return data
+    }
+
+    dispatch(addCharToDeck(data))
+}
+
+//! Update deck
+export const editDeck = (id, {
+    deckName,
+    category,
+    userId
+}) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}`, {
+        method: `PUT`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            deckName,
+            category,
+            userId
+        })
+    })
+    const data = res.json()
+    if (data.errors) {
+        return data
+    }
+    dispatch(updateDeck(data))
+}
+
+//! Delete the whole deck
+export const removeDeck = (deck) => async dispatch => {
+    const res = await fetch(`/api/decks/${deck.id}`, {
+        method: `DELETE`
+    })
+    if (res.ok) {
+        dispatch(deleteDeck(deck.id))
+    }
+}
+
+//! Delete a card in the deck
+export const removeCardFromDeck = (deckId, cardId) => async dispatch => {
+    const res = await fetch(`/api/decks/${deckId}/remove-char`, {
+        method: `DELETE`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cardId
+        })
+    })
+    const data = await res.json()
+    if (data.errors) {
+        return data
+    }
+    dispatch(removeCard(data))
+}
+
+//! Remove all cards that belong to a deck, w/out deleting the whole deck
+export const removeAllCardsFromDeck = (id) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}/remove-all`, {
+        method: `DELETE`
+    })
+    if (res.ok){
+        dispatch(removeCards(id))
+    }
+}
+
+const initialState = {decks: null}
+/*
+*================ REDUCER ================
+*/
+export default function deckReducer(state = initialState, action) {
+    let newState;
+
+    switch (action.type) {
+        case GET_DECKS:
+            newState = Object.assign({}, state);
+            newState.decks = action.payload;
+                return newState;
+
+        case GET_DECK:
+            newState = Object.assign({}, state);
+            newState.decks = action.payload;
+                return newState
+
+        case ADD_DECK:
+            newState = Object.assign({}, state)
+            newState.decks[action.payload.id] = action.payload
+                return newState;
+
+        case ADD_CHAR_TO_DECK:
+            newState = Object.assign({}, state)
+            newState.decks[action.payload.id] = action.payload
+                return newState;
+
+        case UPDATE_DECK:
+            newState = Object.assign({}, state);
+            newState.decks[action.payload.id] = action.payload
+                return newState;
+
+        case DELETE_DECK:
+            newState = Object.assign({}, state);
+            delete newState.decks[action.payload]
+                return newState;
+
+        case REMOVE_CARD:
+            newState = Object.assign({}, state)
+            delete newState.decks[action.payload]
+                return newState;
+
+        case REMOVE_ALL_CARDS:
+            newState = Object.assign({}, state)
+            delete newState.decks[action.payload]
+                return newState;
+
+        default:
+            return state;
     }
 }
