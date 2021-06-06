@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "./store/session";
 
 // COMPONENT IMPORTS
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 import Splashpage from "./components/homepage/Splashpage"
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
