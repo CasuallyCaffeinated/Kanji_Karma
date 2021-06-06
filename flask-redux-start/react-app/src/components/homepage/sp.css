@@ -1,0 +1,6 @@
+/* Splashpage body styles */
+@import "../../index.css";
+
+.main-container {
+    background: #FFB7C5;
+}

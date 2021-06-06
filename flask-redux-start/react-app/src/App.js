@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import NavBar from "./components/NavBar";
 import { authenticate } from "./store/session";
+
+// COMPONENT IMPORTS
+import NavBar from "./components/NavBar";
+import Splashpage from "./components/homepage/Splashpage"
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -30,7 +33,7 @@ function App() {
       <NavBar />
       <Switch>
           <Route path="/" exact={true}>
-            
+            <Splashpage />
           </Route>
           <Route path="/">
               {/* <Error404 /> */} //! TO BE MADE
