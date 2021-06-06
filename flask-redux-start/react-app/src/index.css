@@ -1,1 +1,17 @@
 /* TODO Add site wide styles */
+
+/* Setting all elements to border-box */
+* {
+    box-sizing: border-box;
+}
+
+/* Body css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* This is where all of the general themes will go. Color themes, font family, etc. */
+/* :root {
+
+} */

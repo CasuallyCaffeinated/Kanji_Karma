@@ -30,7 +30,7 @@ function App() {
       <NavBar />
       <Switch>
           <Route path="/" exact={true}>
-
+            
           </Route>
           <Route path="/">
               {/* <Error404 /> */} //! TO BE MADE
