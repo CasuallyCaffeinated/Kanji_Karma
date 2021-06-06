@@ -7,11 +7,11 @@ function DiscoverJapanese() {
     return (
        <Flex align="center" justify="center" >
            <Box className="dj-box">
-                <Button className="dj-btn">
-                    <Link>
+                {/* <Button className="dj-btn"> */}
+                    <Link className="dj-link">
                         Discover Japanese
                     </Link>
-                </Button>
+                {/* </Button> */}
            </Box>
        </Flex>
     )

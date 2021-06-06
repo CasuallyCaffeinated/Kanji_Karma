@@ -2,7 +2,7 @@
 
 /* From the NavBar component */
 .main-nav {
-    background-color: whitesmoke;
+    background-color: var(--lg-gray);
 }
 
 
@@ -11,18 +11,41 @@
 
 /* Styles for the Discover Japanese Button */
 .dj-box {
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    padding: 3px 20px;
+}
+
+.dj-box:hover {
+    background-color: var(--japanese-red);
+    color: #fff;
+    transition: all ease-in 350ms;
+    cursor: pointer;
 }
 
 .dj-btn {
+    font-family: var(--cursive);
+
     text-decoration: none;
     outline: none;
     outline-offset: none;
+    height: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding: 0px 10px;
 }
 
-.dj-btn a:hover {
-    text-decoration: none !important;
-    outline: none;
+.dj-link {
+    font-size: 1.15rem;
+    text-decoration: none;
+    outline-offset: 0px!important;
+    outline: none!important;
+    transition: none!important;
+}
 
+
+.dj-link:hover {
+    text-decoration: none!important;
+    outline: none!important;
+    outline-offset: none!important;
 }
