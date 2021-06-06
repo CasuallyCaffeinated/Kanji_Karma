@@ -1,7 +1,9 @@
 import React from 'react';
 import LogoutButton from '../auth/LogoutButton';
 import Logo from "../navbar/Logo"
+import DiscoverJapanese from "../navbar/DiscoverJapanese"
 import { Flex, Button, Box } from "@chakra-ui/react";
+
 
 import "./navbar.css";
 
@@ -12,6 +14,7 @@ const NavBar = () => {
     className="main-nav">
       <Flex align="center" justify="space-around" w="100%">
           <Logo />
+          <DiscoverJapanese />
           <LogoutButton />
       </Flex>
     </Flex>
