@@ -1,6 +1,28 @@
 @import "../../index.css";
 
-
+/* From the NavBar component */
 .main-nav {
     background-color: whitesmoke;
+}
+
+
+/* Styles for the Logo component */
+
+
+/* Styles for the Discover Japanese Button */
+.dj-box {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.dj-btn {
+    text-decoration: none;
+    outline: none;
+    outline-offset: none;
+}
+
+.dj-btn a:hover {
+    text-decoration: none !important;
+    outline: none;
+
 }
