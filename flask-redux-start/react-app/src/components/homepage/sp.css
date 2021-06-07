@@ -2,5 +2,14 @@
 @import "../../index.css";
 
 .main-container {
-    background: #FFB7C5;
+    background: #fff;
+}
+
+.grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+        "main1 main2"
+        "main1 main2";
 }

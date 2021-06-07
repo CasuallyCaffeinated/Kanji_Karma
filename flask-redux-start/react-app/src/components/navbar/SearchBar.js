@@ -1,15 +1,14 @@
 import React from 'react'
-import { Flex, Box, Input, IconButton } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import { Flex, Input } from "@chakra-ui/react";
+
 
 function SearchBar() {
     return (
         <Flex align="center" justify="center" >
-           <Box className="search-container">
-                <Input placeholder="Search..." className="japanese-search">
-                    {/* <IconButton icon={<SearchIcon />} /> */}
-                </Input>
-           </Box>
+           <div className="search-container">
+           Search: <Input placeholder="Kanji or English words..." className="search-bar input" type="text" />
+           <i className="fas fa-search"></i>
+           </div>
        </Flex>
     )
 }

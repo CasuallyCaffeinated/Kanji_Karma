@@ -2,7 +2,7 @@
 
 /* From the NavBar component */
 .main-nav {
-    background-color: var(--lg-gray);
+    background-color: var(--pastel-gray);
 }
 
 
@@ -49,3 +49,62 @@
     outline: none!important;
     outline-offset: none!important;
 }
+
+/* Styles for the search bar */
+.search-container {
+    outline: none;
+    font-size: 1.2rem;
+    font-family: var(--domine-serif);
+}
+
+
+.search-bar.input {
+        position: relative;
+        padding: 15px 40px 15px 20px;
+        width: 20px;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 100;
+        letter-spacing: 2px;
+
+        border: 3px solid #fff;
+        border-radius: 5px;
+
+        /* background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%); */
+        transition: width 0.65s ease;
+        outline: none;
+
+        /* /* background-color: var(--japanese-red); */
+
+        background-color: rgba(86,33,81,0.6)
+
+      }
+
+    .search-bar.input:focus {
+        width: 300px;
+        background-color: rgba(86,33,81,0.8)
+
+
+    }
+
+      .icon{
+        position: relative;
+        right: -10px;
+      }
+
+      .icon:focus {
+          position: relative;
+          right: -200px;
+      }
+
+      .search-bar.input::placeholder {
+          color: white;
+      }
+
+  /* Sign Up / Log In Dropdown Style */
+  .chakra-collapse {
+      position: absolute;
+      z-index: 1;
+      top: 48px;
+      right: 4.75rem;
+  }
