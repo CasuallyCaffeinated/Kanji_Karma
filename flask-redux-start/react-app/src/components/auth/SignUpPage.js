@@ -6,14 +6,13 @@ import { Box, Flex, Heading } from "@chakra-ui/react"
 
 import "./auth.css";
 
-function TestSignUpPage() {
+function SignUpPage() {
     return (
     <>
         <Flex
         w="100vw"
         h="100vh"
         className="flex-container"
-        // bgColor="purple.50"
         direction="column"
         flex-wrap="nowrap"
         justify="center"
@@ -42,8 +41,6 @@ function TestSignUpPage() {
             borderRadius="2xl"
             marginY="10px"
             bgColor="gray.50"
-            // pos="relative"
-            // bottom="10px"
             >
                 <SignUpForm />
             </Box>
@@ -53,7 +50,7 @@ function TestSignUpPage() {
     )
 }
 
-export default TestSignUpPage
+export default SignUpPage
 
 
 // {/* <Box

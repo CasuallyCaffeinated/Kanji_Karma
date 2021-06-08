@@ -1,0 +1,38 @@
+@import '../../index.css';
+
+.flex-container-2 {
+   background: url("https://media.discordapp.net/attachments/834889363074711592/851922063597895680/KiyozumiDera.jpg?width=1800&height=1000")
+   no-repeat
+   center center
+   fixed;
+   background-position: cover;
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    .div1 { grid-area: 2 / 2 / 3 / 3; }
+    .div2 { grid-area: 2 / 4 / 3 / 5; }
+    .div3 { grid-area: 1 / 2 / 2 / 5; }
+    .div4 { grid-area: 3 / 2 / 4 / 5; }
+
+
+.profile-header {
+    font-family: var(--domine-serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.profile-header-2 {
+    font-family: var(--japanese-text);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: whitesmoke;
+}

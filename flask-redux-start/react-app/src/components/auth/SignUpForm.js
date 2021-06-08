@@ -24,10 +24,12 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
       dispatch(signUp(name, username, email, password))
-      history.push(`/profile/${user.id}`)
-
     }
   };
+
+  if (user) {
+    history.push(`/profile/${user.id}`)
+  }
 
   const updateName = (e) => {
     setName(e.target.value)

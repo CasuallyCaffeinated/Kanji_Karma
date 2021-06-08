@@ -9,7 +9,7 @@ function Splashpage() {
         <Flex minH="90vh"
         width="100vw"
         px={8}
-        marginY="5%"
+        marginY="10%"
         className="main-container"
         justifyContent="space-evenly"
         align="left">

@@ -7,8 +7,8 @@ import { authenticate } from "./store/session";
 import NavBar from "./components/navbar/NavBar";
 import Splashpage from "./components/homepage/Splashpage"
 import Footer from "./components/Footer"
-import TestSignUpPage from "./components/auth/TestSignUpPage"
-
+import SignUpPage from "./components/auth/SignUpPage"
+import LoginPage from "./components/auth/LoginPage"
 import UserProfile from "./components/profile/UserProfile"
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
@@ -40,7 +40,10 @@ function App() {
             <Splashpage />
           </Route>
           <Route path="/sign-up">
-              <TestSignUpPage />
+              <SignUpPage />
+          </Route>
+          <Route path="/login">
+              <LoginPage />
           </Route>
           <Route path="/profile/:id">
               <UserProfile />

@@ -39,12 +39,14 @@ export const authenticate = () => async (dispatch) => {
       })
     });
     const data = await response.json();
+    const id = data.id
     if (data.errors) {
         return data;
+    } else {
+      dispatch(setUser(data))
+      return id;
     }
 
-    dispatch(setUser(data))
-    return {};
   }
 
   export const logout = () => async (dispatch) => {
