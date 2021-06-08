@@ -3,21 +3,25 @@ import { useDispatch,useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import { Button } from "@chakra-ui/react"
 
+import { useHistory } from "react-router-dom"
+
 import UserDropdown from "./UserDropdown";
 
 
 const UserButtons = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
+  const history = useHistory()
 
   const onLogout = async (e) => {
     dispatch(logout());
+    history.push("/")
   };
 
   return (
   <>
       {user ?
-      <Button variant="link" onClick={onLogout}>Logout</Button>
+      <Button onClick={onLogout}>Logout</Button>
        :
        <UserDropdown /> }
   </>
