@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
+import { Box, Button, Input, FormLabel, FormControl } from "@chakra-ui/react"
+
+import "./auth.css";
+
 const SignUpForm = () => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -45,44 +49,81 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
-        <label>User Name</label>
-        <input
+      <Box>
+        <FormLabel className="form label" >
+          Name
+        </FormLabel>
+        </Box>
+        <Box>
+        <Input
+        type="text"
+        name="name"
+        onChange={updateName}
+        className="form input"
+        value={name}
+        ></Input>
+        </Box>
+
+        <FormControl isRequired>
+        <Box>
+        <FormLabel className="form label">User Name</FormLabel>
+        </Box>
+        <Box>
+        <Input
           type="text"
           name="username"
           onChange={updateUsername}
+          className="form input"
           value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
+        ></Input>
+      </Box>
+        </FormControl>
+
+      <Box>
+        <FormLabel className="form label" >Email</FormLabel>
+        </Box>
+        <Box>
+        <Input
           type="text"
           name="email"
           onChange={updateEmail}
+          className="form input"
           value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
+        ></Input>
+      </Box>
+
+      <Box>
+        <FormLabel className="form label" >Password</FormLabel>
+        </Box>
+        <Box>
+        <Input
           type="password"
           name="password"
           onChange={updatePassword}
           value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
+          className="form input"
+        ></Input>
+      </Box>
+
+      <Box>
+        <FormLabel className="form label" >Repeat Password</FormLabel>
+        </Box>
+        <Box>
+        <Input
           type="password"
           name="repeat_password"
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
+          className="form input"
+        ></Input>
+      </Box>
+
+      <Box
+      marginY="10px"
+      >
+      <Button type="submit" colorScheme="purple">Sign Up</Button>
+      </Box>
     </form>
   );
 };

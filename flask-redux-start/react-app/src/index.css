@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Domine&family=Fira+Sans:wght@200&family=Lato:wght@300&family=Merriweather:wght@300&family=Shippori+Mincho&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 /* Setting all elements to border-box */
 * {
     box-sizing: border-box;
@@ -30,4 +30,5 @@ body {
 --fira-sans: ‘Fira Sans’, sans-serif;
 --lato-sans: ‘Lato’, sans-serif;
 --japanese-text: ‘Shippori Mincho’, serif;
+--permanent-marker: 'Permanent Marker', cursive;
 }

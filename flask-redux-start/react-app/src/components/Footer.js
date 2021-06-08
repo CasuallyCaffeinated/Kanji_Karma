@@ -21,8 +21,9 @@ function Footer() {
                    w="60%">
             <Stack
                direction="row"
-               p="30px"
-               bgColor="whiteAlpha.600"
+               bgColor="whiteAlpha.900"
+               pos="fixed"
+               bottom="10px"
                >
                    <Box>Logo</Box>
                    <Box>Logo</Box>
