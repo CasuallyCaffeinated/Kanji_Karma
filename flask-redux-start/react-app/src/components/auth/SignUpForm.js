@@ -13,6 +13,8 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -21,7 +23,9 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password))
+      dispatch(signUp(name, username, email, password))
+      history.push(`/profile/${user.id}`)
+
     }
   };
 
@@ -79,6 +83,7 @@ const SignUpForm = () => {
       </Box>
         </FormControl>
 
+        <FormControl isRequired>
       <Box>
         <FormLabel className="form label" >Email</FormLabel>
         </Box>
@@ -91,7 +96,9 @@ const SignUpForm = () => {
           value={email}
         ></Input>
       </Box>
+      </FormControl>
 
+      <FormControl isRequired>
       <Box>
         <FormLabel className="form label" >Password</FormLabel>
         </Box>
@@ -104,7 +111,9 @@ const SignUpForm = () => {
           className="form input"
         ></Input>
       </Box>
+      </FormControl>
 
+      <FormControl isRequired>
       <Box>
         <FormLabel className="form label" >Repeat Password</FormLabel>
         </Box>
@@ -118,6 +127,7 @@ const SignUpForm = () => {
           className="form input"
         ></Input>
       </Box>
+      </FormControl>
 
       <Box
       marginY="10px"

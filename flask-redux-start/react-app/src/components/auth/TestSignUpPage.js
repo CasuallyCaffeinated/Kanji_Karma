@@ -13,7 +13,7 @@ function TestSignUpPage() {
         w="100vw"
         h="100vh"
         className="flex-container"
-        bgColor="purple.50"
+        // bgColor="purple.50"
         direction="column"
         flex-wrap="nowrap"
         justify="center"
@@ -28,7 +28,7 @@ function TestSignUpPage() {
                 size="lg"
                 bold="normal"
                 className="heading one"
-                color="red.400"
+                color="red.600"
                 >
                 Sign Up!
                 </Heading>
