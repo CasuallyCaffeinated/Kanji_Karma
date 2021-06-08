@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import NavBar from "./components/navbar/NavBar";
 import Splashpage from "./components/homepage/Splashpage"
 import Footer from "./components/Footer"
+import TestSignUpPage from "./components/auth/TestSignUpPage"
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -37,7 +38,7 @@ function App() {
             <Splashpage />
           </Route>
           <Route path="/sign-up">
-
+              <TestSignUpPage />
           </Route>
           <Route path="/">
               {/* <Error404 /> */} //! TO BE MADE

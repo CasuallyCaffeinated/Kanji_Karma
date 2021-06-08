@@ -6,7 +6,7 @@ import "./sp.css";
 
 function Splashpage() {
     return (
-        <Flex minH="70vh"
+        <Flex minH="90vh"
         width="100vw"
         px={8}
         marginY="5%"

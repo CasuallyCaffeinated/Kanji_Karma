@@ -1,0 +1,38 @@
+@import "../../index.css";
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.8fr 3fr 0.8fr;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". WelcomeMsg ."
+      "JPPic SignUp JPPic2"
+      ". JPPic3 .";
+  }
+  .SignUp {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". InnerSignup ."
+      ". InnerSignup .";
+    grid-area: SignUp;
+  }
+  .InnerSignup {
+    display: grid;
+    grid-template-columns: 0.2fr 2.6fr 0.2fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . ."
+      ". Modal .";
+    grid-area: InnerSignup;
+  }
+  .Modal { grid-area: Modal; }
+  .WelcomeMsg { grid-area: WelcomeMsg; }
+  .JPPic { grid-area: JPPic; }
+  .JPPic2 { grid-area: JPPic2; }
+  .JPPic3 { grid-area: JPPic3; }
