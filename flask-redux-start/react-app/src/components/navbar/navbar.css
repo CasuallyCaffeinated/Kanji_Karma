@@ -3,6 +3,8 @@
 /* From the NavBar component */
 .main-nav {
     background-color: var(--pastel-gray);
+    position: fixed;
+    top: 0;
 }
 
 
