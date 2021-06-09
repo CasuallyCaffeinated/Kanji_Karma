@@ -1,7 +1,11 @@
 import React from 'react'
-import { Flex, Box } from "@chakra-ui/react"
+import { Flex, Box, Button } from "@chakra-ui/react"
 
 import { useDispatch, useSelector } from "react-redux"
+
+import { useParams, useHistory } from "react-router-dom"
+
+
 
 import "./profile.css";
 
@@ -9,7 +13,13 @@ function UserProfile() {
 
     const user = useSelector(state => state.session.user)
 
+    const { id } = useParams()
 
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push(`/me/${id}/inventory`)
+    }
 
     return (
         <Flex
@@ -21,10 +31,27 @@ function UserProfile() {
             w="100%"
             h="100%"
             >
-                <Box className="div1">TBA LINK TO MAIN CARD PROFILE</Box>
+                <Flex className="div1"
+                justify="center"
+                align="center"
+                >
+                    <Flex
+                    w="65%"
+                    h="45%"
+                    bgColor="purple.200"
+                    border="3px solid black"
+                    borderRadius={10}
+                    align="center"
+                    justify="center"
+                    >
+                        <Box>
+                            <Button colorScheme="blackAlpha" onClick={handleClick} >To main inventory</Button>
+                        </Box>
+                    </Flex>
+                </Flex>
 
 
-                <Box className="div2">TBA LINK TO DECKS</Box>
+                <Flex className="div2">TBA LINK TO DECKS</Flex>
 
 
                 <Flex className="div3"

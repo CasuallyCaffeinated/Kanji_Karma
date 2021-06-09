@@ -65,7 +65,7 @@ export const addACard = (cardId, userId) => async dispatch => {
 
 const initialState = {characters: null}
 //* ================== REDUCER ================== *\\
-export default function characterReducer(state = initialState, action) {
+export default function charactersReducer(state = initialState, action) {
     let newState;
 
     switch (action.type) {
