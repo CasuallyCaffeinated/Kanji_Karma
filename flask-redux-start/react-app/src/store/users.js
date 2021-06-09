@@ -3,6 +3,7 @@
 //* CONSTANTS
 const GET_USERS = "users/GET_USERS";
 const GET_USER = "users/GET_USER";
+const GET_USER_CHARACTERS = "users/GET_USER_CHARACTERS"
 const EDIT_USER = "users/EDIT_USER";
 const DELETE_CARD_FROM_USER = "users/DELETE_CARD_FROM_USER";
 
@@ -28,6 +29,8 @@ const deleteCardFromUser = (user) =>  ({
     payload: user
 })
 
+//! ADD A GET ALL CHARS THAT A USER OWNS THUNK
+
 
 //* THUNKS
 //! Get all
@@ -36,7 +39,7 @@ export const getAllUsers = () => async dispatch => {
 
     if (response.ok) {
         const data = await response.json();
-        await dispatch(getUsers(data.users))
+        dispatch(getUsers(data.users)) //? AWAIT may be required?
     } else {
         return {errors: "An error occurred. Please try again."}
     }
@@ -47,7 +50,7 @@ export const getUser = (id) => async dispatch => {
     const response = await fetch(`/api/users/${id}`)
     if (response.ok) {
         const data = await response.json()
-        await dispatch(getOneUser(data))
+        dispatch(getOneUser(data)) //? AWAIT may be required?
     } else {
         return {errors: "An error occurred. Please try again."}
     }
