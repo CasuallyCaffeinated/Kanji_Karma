@@ -144,7 +144,7 @@ export default function userReducer(state = initialState, action) {
 
         case DELETE_CARD_FROM_USER:
             newState = Object.assign({}, state)
-            delete newState.user[action.payload] //? NOTE TO SELF: CHECK THIS OUT LATER IF IT THROWS AN ERROR
+            delete newState.users[action.payload] //? NOTE TO SELF: CHECK THIS OUT LATER IF IT THROWS AN ERROR
                 return newState;
 
         default:

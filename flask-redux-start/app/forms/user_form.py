@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, NumberRange
 
 
 class RemoveCharFromUserForm(FlaskForm):
-    characterId = IntegerField("characterId", validators=[DataRequired(),
+    cardId = IntegerField("characterId", validators=[DataRequired(),
     NumberRange(min=1, max=2136, message="Kanji index in out of range! Could not find that kanji.")])
 
 """

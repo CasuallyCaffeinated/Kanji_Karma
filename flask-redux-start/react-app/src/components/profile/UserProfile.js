@@ -43,15 +43,38 @@ function UserProfile() {
                     borderRadius={10}
                     align="center"
                     justify="center"
+                    direction="column"
                     >
+                        <Box className="inventory-msg">My inventory</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handleClick} >To main inventory</Button>
+                            <Button colorScheme="blackAlpha" onClick={handleClick} >Inventory</Button>
                         </Box>
+                        <Box className="inventory-msg-2">私の目録</Box>
                     </Flex>
                 </Flex>
 
 
-                <Flex className="div2">TBA LINK TO DECKS</Flex>
+                <Flex className="div2"
+                justify="center"
+                align="center"
+                >
+                    <Flex
+                    w="65%"
+                    h="45%"
+                    bgColor="purple.200"
+                    border="3px solid black"
+                    borderRadius={10}
+                    align="center"
+                    justify="center"
+                    direction="column"
+                    >
+                        <Box className="inventory-msg">My Decks</Box>
+                        <Box>
+                            <Button colorScheme="blackAlpha" onClick={handleClick}>Decks</Button>
+                        </Box>
+                        <Box className="inventory-msg-2">私の山札</Box>
+                    </Flex>
+                </Flex>
 
 
                 <Flex className="div3"

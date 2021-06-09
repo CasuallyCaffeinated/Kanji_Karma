@@ -72,10 +72,10 @@ def edit_user(id):
 def remove_users_chars(id):
     form = RemoveCharFromUserForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print("PRINT THIS", form.data)
     if form.validate_on_submit():
         data = form.data
-        characterId = data["characterId"]
+        characterId = data["cardId"]
         character = Character.query.get(characterId)
         user = User.query.get(id)
 

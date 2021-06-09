@@ -1,7 +1,7 @@
 @import '../../index.css';
 
 .flex-container-2 {
-   background: url("https://media.discordapp.net/attachments/834889363074711592/851922063597895680/KiyozumiDera.jpg?width=1800&height=1000")
+   background: url("https://media.discordapp.net/attachments/716919293270556702/851290480528326666/tumblr_753c6408f2a5c68abf71e5cbf56950f0_fda9b63b_2048_-_Copy.jpg?width=841&height=667")
    no-repeat
    center center
    fixed;
@@ -23,16 +23,34 @@
 
 
 .profile-header {
-    font-family: var(--domine-serif);
+    font-family: var(--permanent-marker);
     font-style: italic;
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 2.7rem;
+    color: rgb(255, 106, 106);
 }
 
 .profile-header-2 {
     font-family: var(--japanese-text);
     font-style: italic;
+    font-weight: 900;
+    font-size: 2.3rem;
+    color: rgba(255, 255, 255, 0.856);
+
+}
+
+.inventory-msg:nth-child(1) {
     font-weight: 700;
-    font-size: 1.5rem;
-    color: whitesmoke;
+    margin-bottom: 15px;
+}
+
+.inventory-msg-2 {
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.inventory-pg-intro-msg {
+    font-family: var(--permanent-marker);
+    font-size: 2rem;
+    font-style: italic;
 }
