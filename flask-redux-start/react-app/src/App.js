@@ -10,6 +10,7 @@ import Footer from "./components/Footer"
 import SignUpPage from "./components/auth/SignUpPage"
 import LoginPage from "./components/auth/LoginPage"
 import UserProfile from "./components/profile/UserProfile"
+import CharacterInventory from "./components/profile/CharacterInventory"
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/profile/:id">
               <UserProfile />
+          </Route>
+          <Route path="/me/:id/inventory">
+            <CharacterInventory />
           </Route>
           <Route path="/">
               {/* <Error404 /> */} //! TO BE MADE
