@@ -46,7 +46,7 @@ export const getMeanings = (query) => async dispatch => {
 
 
 //* ========== REDUCER ========== *\\
-export default function(state = {}, action) {
+export default function searchReducer(state = {}, action) {
     let newState;
 
     switch (action.type) {
