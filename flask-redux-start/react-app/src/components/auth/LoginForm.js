@@ -30,17 +30,13 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+
   if (user) {
     return <Redirect to={`/profile/${user.id}`} />;
   }
 
   return (
     <form onSubmit={onLogin}>
-      <Box>
-        {errors.map((error) => (
-          <Box>{error}</Box>
-        ))}
-      </Box>
       <Box>
         <FormControl isRequired>
         <FormLabel htmlFor="email">Email</FormLabel>
@@ -64,8 +60,16 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         </FormControl>
-        <Button type="submit" colorScheme="purple">Login</Button>
-
+        <Button type="submit" colorScheme="purple"
+        marginY="15px"
+        >Login</Button>
+        <Box
+        color="red.600"
+        >
+        {errors.map((error) => (
+          <Box>{error}</Box>
+        ))}
+      </Box>
       </Box>
     </form>
   );
