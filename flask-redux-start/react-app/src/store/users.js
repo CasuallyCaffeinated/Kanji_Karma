@@ -19,6 +19,11 @@ const getOneUser = (user) => ({
     payload: user
 });
 
+const getAllUserCharacters = (user_chars) => ({
+    type: GET_USER_CHARACTERS,
+    payload: user_chars
+})
+
 const editOneUser = (user) => ({
     type: EDIT_USER,
     payload: user
@@ -54,6 +59,18 @@ export const getUser = (id) => async dispatch => {
     } else {
         return {errors: "An error occurred. Please try again."}
     }
+}
+
+//! Get all characters that belong to a user
+export const getCharsThatBelongToUser = (id) => async dispatch => {
+        const res = await fetch(`/api/users/${id}/chars`)
+
+        if (res.ok) {
+            const data = await res.json()
+            dispatch(getAllUserCharacters(data))
+        } else {
+            return {errors: "An error occurred, Please try again."}
+        }
 }
 
 //! Edit
@@ -114,6 +131,11 @@ export default function userReducer(state = initialState, action) {
             newState = Object.assign({}, state);
             newState.users = action.payload;
                 return newState
+
+        case GET_USER_CHARACTERS:
+            newState = Object.assign({}, state)
+            newState.users = action.payload
+                return newState;
 
         case EDIT_USER:
             newState = Object.assign({}, state);
