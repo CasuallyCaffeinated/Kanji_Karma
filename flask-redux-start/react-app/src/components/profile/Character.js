@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box, Stack, Text, Flex, Button} from "@chakra-ui/react"
 
@@ -9,18 +9,21 @@ import { useDispatch } from "react-redux"
 
 function Character({character}) {
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const dispatch = useDispatch()
     const { id } = useParams()
 
     const onDelete = () => {
 
         dispatch(removeCardFromUser(id, character.id))
-
+        setIsLoading(true)
     }
 
-    // useEffect(() => {
-    //     dispatch(getCharsThatBelongToUser(id))
-    // }, [dispatch]])
+    useEffect(() => {
+        dispatch(getCharsThatBelongToUser(id))
+
+    }, [dispatch, isLoading])
 
     return (
       <Box

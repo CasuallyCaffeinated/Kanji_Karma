@@ -105,7 +105,7 @@ export const removeCardFromUser = (userId, cardId) => async dispatch => {
             'Content-Type': "application/json"
         },
         body: JSON.stringify({
-            cardId
+            characterId: cardId
         })
     })
     const data = await response.json()

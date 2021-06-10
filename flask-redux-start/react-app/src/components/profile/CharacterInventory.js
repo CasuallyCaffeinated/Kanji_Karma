@@ -49,11 +49,12 @@ function CharacterInventory() {
                 borderTop="5px solid black"
                 >
                     {
-                    Object.values(userCharacters).map(userChar =>
+                    Object.values(userCharacters).map((userChar,idx) =>
                         <Flex
                         justify="space-evenly"
                         align="center"
                         flexWrap="wrap"
+                        key={idx}
                         >{userChar?.characters.map(character => {
                             // return <Box>{character.kanjiCharacter}</Box>
                             return <Character key={character.id} character={character} />

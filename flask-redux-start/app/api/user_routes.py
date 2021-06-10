@@ -75,7 +75,7 @@ def remove_users_chars(id):
     print("PRINT THIS", form.data)
     if form.validate_on_submit():
         data = form.data
-        characterId = data["cardId"]
+        characterId = data["characterId"]
         character = Character.query.get(characterId)
         user = User.query.get(id)
 

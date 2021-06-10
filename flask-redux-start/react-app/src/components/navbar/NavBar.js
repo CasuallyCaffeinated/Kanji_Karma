@@ -2,7 +2,7 @@ import React from 'react';
 import UserButtons from './UserButtons';
 import Logo from "./Logo"
 import DiscoverJapanese from "./DiscoverJapanese"
-import SearchBar from "./SearchBar"
+import SearchBar from "../search/SearchBar"
 import { Flex } from "@chakra-ui/react";
 
 
