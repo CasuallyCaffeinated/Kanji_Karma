@@ -5,7 +5,9 @@ import { Flex, Input, Box, FormControl, InputGroup, Button } from "@chakra-ui/re
 import { getKanji, getMeanings } from "../../store/search";
 
 import { Search2Icon } from "@chakra-ui/icons";
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
+
+import KanjiCharacterModal from "../modal/KanjiCharacterModal"
 
 // ^[ a-zA-Z]*$
 
@@ -19,11 +21,13 @@ function SearchBar() {
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')
 
-    const { query } = useParams()
+    // const { query } = useParams()
 
-    console.log("TEST TEST, HERE IS THE RESULT", searchResult);
+    // console.log("TEST TEST, HERE IS THE RESULT", searchResult);
 
-    console.log("PROP IN OBJ", searchResult?.kanjiCharacter);
+    // console.log("PROP IN OBJ", searchResult?.kanjiCharacter);
+
+    // let searched;
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -35,10 +39,12 @@ function SearchBar() {
         if(searched) {
             dispatch(getMeanings(searchTerm))
             history.push(`/search/${searchTerm.toLowerCase()}`)
-
+            // setSearchTerm('')
         } else {
-            dispatch(getKanji(searchTerm))
-            // console.log(`This works for japanese words`);
+            let kanjiArray =  Object.values(searchTerm)
+            dispatch(getKanji(kanjiArray))
+            // setSearchTerm('')
+            // return <KanjiSearchResult searchResult={searchResult} />
         }
 
     }
@@ -55,6 +61,9 @@ function SearchBar() {
            value={searchTerm}
            bgColor="blackAlpha.200"/>
            <Button onClick={handleSearch}><Search2Icon /></Button>
+           {/* { !searched && */}
+            <KanjiCharacterModal />
+        {/* } */}
            </Box>
            </form>
        </Flex>

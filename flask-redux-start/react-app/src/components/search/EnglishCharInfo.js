@@ -1,13 +1,16 @@
 import React from 'react'
 
 import { Box, Stack, Text, Flex, Button} from "@chakra-ui/react"
-
-
+import { AddIcon } from "@chakra-ui/icons";
 function EnglishCharInfo({result}) {
+
+
+
     return (
         <Box
         margin={5}
       >
+          <Button marginBottom={2} colorScheme="green" ><AddIcon /></Button>
           <Box
           w="250px"
           h="375px"
