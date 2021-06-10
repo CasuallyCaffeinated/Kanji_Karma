@@ -14,14 +14,16 @@ import { useHistory, useParams } from 'react-router';
 function SearchBar() {
 
     const dispatch = useDispatch()
-    const searchResult = useSelector(state => state.searchReducer)
+    const searchResult = useSelector(state => state.searchReducer.searchResults)
 
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')
 
     const { query } = useParams()
 
+    console.log("TEST TEST, HERE IS THE RESULT", searchResult);
 
+    console.log("PROP IN OBJ", searchResult?.kanjiCharacter);
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -36,7 +38,7 @@ function SearchBar() {
 
         } else {
             dispatch(getKanji(searchTerm))
-            console.log(`This works for japanese words`);
+            // console.log(`This works for japanese words`);
         }
 
     }

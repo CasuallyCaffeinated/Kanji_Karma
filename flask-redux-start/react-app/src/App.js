@@ -11,7 +11,10 @@ import SignUpPage from "./components/auth/SignUpPage"
 import LoginPage from "./components/auth/LoginPage"
 import UserProfile from "./components/profile/UserProfile"
 import CharacterInventory from "./components/profile/CharacterInventory"
+
 import EnglishSearchResult from "./components/search/EnglishSearchResult"
+import KanjiSearchResult from "./components/search/KanjiSearchResult"
+
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -37,6 +40,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <KanjiSearchResult />
       <Switch>
           <Route path="/" exact={true}>
             <Splashpage />
