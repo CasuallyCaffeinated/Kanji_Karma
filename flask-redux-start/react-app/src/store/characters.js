@@ -81,7 +81,10 @@ export default function charactersReducer(state = initialState, action) {
 
         case ADD_CARD_TO_USER:
             newState = Object.assign({}, state);
-            newState.characters[action.payload.id] = action.payload
+            newState.characters = {
+                ...state,
+                [action.payload.id]: action.payload
+            }
                 return newState;
 
         default:

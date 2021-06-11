@@ -24,8 +24,9 @@ function UserProfile() {
     return (
         <Flex
         w="100vw"
-        h="100vh"
+        h="90vh"
         className="flex-container-2"
+
         >
             <Box className="parent"
             w="100%"
@@ -34,10 +35,11 @@ function UserProfile() {
                 <Flex className="div1"
                 justify="center"
                 align="center"
+
                 >
                     <Flex
                     w="65%"
-                    h="45%"
+                    h="55%"
                     bgColor="purple.200"
                     border="3px solid black"
                     borderRadius={10}
@@ -60,7 +62,7 @@ function UserProfile() {
                 >
                     <Flex
                     w="65%"
-                    h="45%"
+                    h="55%"
                     bgColor="purple.200"
                     border="3px solid black"
                     borderRadius={10}

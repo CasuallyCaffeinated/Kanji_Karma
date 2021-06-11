@@ -1,16 +1,66 @@
 import React from 'react'
 
-import { Box, Stack, Text, Flex, Button} from "@chakra-ui/react"
+import {
+    Box,
+    Stack,
+    Text,
+    Flex,
+    Button,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModelFooter,
+    useDisclosure } from "@chakra-ui/react"
+
+
 import { AddIcon } from "@chakra-ui/icons";
+
+import { addACard } from "../../store/characters";
+import {useDispatch, useSelector} from "react-redux"
+
 function EnglishCharInfo({result}) {
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const user = useSelector(state => state.session.user)
+    // const character = useSelector(state => state.searchReducer.searchResults)
+    const dispatch = useDispatch()
+
+    const onAdd = () => {
+        if (!result) {
+            return
+        }
+        dispatch(addACard(result.id, user.id))
+
+    }
 
 
     return (
         <Box
         margin={5}
       >
-          <Button marginBottom={2} colorScheme="green" ><AddIcon /></Button>
+          { user ?
+          <Button marginBottom={2} colorScheme="green" onClick={onOpen}><AddIcon /></Button>
+          :
+          null
+        }
+
+          <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                <ModalHeader>Add this character?</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody pb={6}>
+                        <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add.</Button>
+                        <Button onClick={onClose} margin="5px" colorScheme="red">I've changed my mind.</Button>
+                </ModalBody>
+                </ModalContent>
+            </Modal>
+
+
           <Box
           w="250px"
           h="375px"

@@ -30,7 +30,7 @@ function UserDropdown() {
 
     return (
         <>
-            <Button onClick={onToggle}>Login / Sign Up</Button>
+            <Button onClick={onToggle} className="navbar dropdown or logout btn">Login / Sign Up</Button>
             <Collapse in={isOpen} animateOpacity>
                 <Box
                 display="block"

@@ -21,7 +21,7 @@ const UserButtons = () => {
   return (
   <>
       {user ?
-      <Button onClick={onLogout}>Logout</Button>
+      <Button onClick={onLogout} className="navbar dropdown or logout btn">Logout</Button>
        :
        <UserDropdown /> }
   </>

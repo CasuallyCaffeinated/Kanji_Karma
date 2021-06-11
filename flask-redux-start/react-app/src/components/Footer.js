@@ -1,7 +1,11 @@
 import React from 'react'
-import { Flex, Box, Stack } from "@chakra-ui/react"
+import { Flex, Box, Stack, Button } from "@chakra-ui/react"
 
 import "./homepage/sp.css"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaGithub } from "react-icons/fa"
+
 
 function Footer() {
     return (
@@ -18,14 +22,16 @@ function Footer() {
             <Flex
                    align="center"
                    justify="center"
-                   w="60%">
+                   w="100%"
+                   h="100%"
+                   >
             <Stack
                direction="row"
                bgColor="whiteAlpha.900"
                pos="fixed"
                bottom="10px"
                >
-                   <Box>Logo</Box>
+                   <Box><FaGithub fontSize={'35px'}/></Box>
                    <Box>Logo</Box>
                    <Box>My name</Box>
                    <Box>Logo</Box>
@@ -33,6 +39,7 @@ function Footer() {
                </Stack>
         </Flex>
         </Flex>
+
     </>
     )
 }

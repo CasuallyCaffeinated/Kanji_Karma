@@ -39,14 +39,13 @@ function SearchBar() {
         if(searched) {
             dispatch(getMeanings(searchTerm))
             history.push(`/search/${searchTerm.toLowerCase()}`)
-            // setSearchTerm('')
+            setSearchTerm('')
         } else {
             let kanjiArray =  Object.values(searchTerm)
             dispatch(getKanji(kanjiArray))
-            // setSearchTerm('')
+            setSearchTerm('')
             // return <KanjiSearchResult searchResult={searchResult} />
         }
-
     }
 
     return (
@@ -59,8 +58,8 @@ function SearchBar() {
            type="text"
            onChange={(e) => setSearchTerm(e.target.value)}
            value={searchTerm}
-           bgColor="blackAlpha.200"/>
-           <Button onClick={handleSearch}><Search2Icon /></Button>
+           bgColor="blackAlpha.600"/>
+           <Button onClick={handleSearch} marginLeft="5px" ><Search2Icon /></Button>
            {/* { !searched && */}
             <KanjiCharacterModal />
         {/* } */}

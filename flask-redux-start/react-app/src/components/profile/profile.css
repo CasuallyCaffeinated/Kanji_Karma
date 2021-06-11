@@ -1,11 +1,12 @@
 @import '../../index.css';
 
 .flex-container-2 {
-   background: url("https://media.discordapp.net/attachments/716919293270556702/851290480528326666/tumblr_753c6408f2a5c68abf71e5cbf56950f0_fda9b63b_2048_-_Copy.jpg?width=841&height=667")
+   background: url("https://media.discordapp.net/attachments/716919293270556702/851290480528326666/tumblr_753c6408f2a5c68abf71e5cbf56950f0_fda9b63b_2048_-_Copy.jpg?width=841&height=867")
    no-repeat
    center center
    fixed;
    background-position: cover;
+
 }
 
 
@@ -27,7 +28,8 @@
     font-style: italic;
     font-weight: 500;
     font-size: 2.7rem;
-    color: rgb(255, 106, 106);
+    color: rgb(247, 71, 71);
+    /* color: rgb(255, 106, 106); */
 }
 
 .profile-header-2 {
