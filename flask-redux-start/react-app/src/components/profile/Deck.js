@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 
-import { editDeck, removeDeck } from "../../store/decks";
+import { editDeck, removeDeck, createDeck } from "../../store/decks";
+import { getDecksThatBelongToUser } from "../../store/users"
 
 import {
     Box,
@@ -18,23 +19,40 @@ import {
 
 import { FaRegEdit } from "react-icons/fa"
 
-function Deck({deck}) {
+function Deck({deck, setIsLoading, isLoading}) {
 
     const { onClose, onOpen, isOpen, onToggle } = useDisclosure()
     const [show, setShow] = useState()
+
 
     const dispatch = useDispatch()
 
     const handleToggle = () => setShow(!show);
 
+    console.log("TESTING THE ID", deck.id);
+
+    const onDelete = () => {
+        if (!deck) {
+            return
+        }
+        console.log(deck.id)
+        dispatch(removeDeck(deck?.id))
+        setIsLoading(!isLoading)
+        setShow(!show)
+    }
+
+    // useEffect(() => {
+
+    // }, [dispatch, isLoading])
+
     return (
     <>
 
+        {/* //? Edit deck modal: */}
 
 
 
-
-
+        {/* //? Collapse with the two buttons */}
         <Stack align="center" justify="space-evenly" margin={20}>
         <Collapse startingHeight={0}
         in={show}
@@ -49,8 +67,9 @@ function Deck({deck}) {
           shadow="lg"
       >
       <Stack w="100%">
-        <Button colorScheme="blue">Edit</Button>
-        <Button colorScheme="red">Delete</Button>
+        <Button colorScheme="red">Add a deck</Button>
+        <Button colorScheme="blue">Edit a deck</Button>
+        <Button colorScheme="red" onClick={onDelete}>Delete a deck</Button>
         </Stack>
         </Box>
       </Collapse>

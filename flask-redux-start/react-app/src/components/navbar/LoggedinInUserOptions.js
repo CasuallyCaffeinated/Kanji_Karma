@@ -5,7 +5,10 @@ import { logout } from "../../store/session";
 
 import { Button, Collapse, Stack,  Box, useDisclosure} from "@chakra-ui/react"
 import { HamburgerIcon } from "@chakra-ui/icons"
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory, useLocation } from "react-router-dom"
+
+import { getCharsThatBelongToUser } from "../../store/users"
+import { useParams } from "react-router-dom"
 
 function LoggedinInUserOptions() {
 
@@ -14,10 +17,21 @@ function LoggedinInUserOptions() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+    const location = useLocation()
+
+    console.log(location.pathname);
+
+    // const { id } = useParams()
+
     const onLogout = async (e) => {
         dispatch(logout());
         history.push("/")
       };
+
+    //   const toggleInventory = () => {
+    //       dispatch(getCharsThatBelongToUser(id))
+    //       history.push(`/me/${id}/inventory`)
+    //   }
 
     return (
         <>
@@ -34,9 +48,15 @@ function LoggedinInUserOptions() {
                 >
                     <Stack direction="column">
                         <Box>
-                            <Link to={`/me/${user?.id}/inventory`}>
-                            <Button w="150px">My Inventory</Button>
-                            </Link>
+                            {location.pathname === `/me/${user?.id}/inventory` ?
+                           <Link to={`/me/${user?.id}/decks`}>
+                           <Button w="150px">My Decks</Button>
+                           </Link>
+                            :
+                             <Link to={`/me/${user?.id}/inventory`}>
+                             <Button w="150px">My Inventory</Button>
+                             </Link>
+                            }
                         </Box>
                         <Box>
                             <Link to="/">

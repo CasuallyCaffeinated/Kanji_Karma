@@ -162,12 +162,12 @@ export const editDeck = (id, {
 }
 
 //! Delete the whole deck
-export const removeDeck = (deck) => async dispatch => {
-    const res = await fetch(`/api/decks/${deck.id}`, {
+export const removeDeck = (id) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}`, {
         method: `DELETE`
     })
     if (res.ok) {
-        dispatch(deleteDeck(deck.id))
+        dispatch(deleteDeck(id))
     }
 }
 

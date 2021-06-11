@@ -3,6 +3,7 @@ import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from "react-redux"
 
 import { getCharsThatBelongToUser } from "../../store/users"
+import { getAllDecks } from "../../store/decks"
 
 import { useParams } from "react-router-dom"
 
@@ -19,6 +20,7 @@ function CharacterInventory() {
 
     useEffect(() => {
         dispatch(getCharsThatBelongToUser(id))
+        dispatch(getAllDecks())
     }, [dispatch, id])
 
     return (
@@ -49,17 +51,20 @@ function CharacterInventory() {
                 borderTop="5px solid black"
                 >
                     {
+                        userCharacters ?
                     Object.values(userCharacters).map((userChar,idx) =>
                         <Flex
                         justify="space-evenly"
                         align="center"
                         flexWrap="wrap"
                         key={idx}
-                        >{userChar?.characters.map(character => {
+                        >{userChar?.characters?.map(character => {
                             // return <Box>{character.kanjiCharacter}</Box>
                             return <Character key={character.id} character={character} />
                         })}</Flex>
                         )
+                        :
+                        null
                 }
                 </Box>
             </Flex>
