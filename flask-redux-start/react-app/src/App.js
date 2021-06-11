@@ -14,7 +14,7 @@ import CharacterInventory from "./components/profile/CharacterInventory"
 
 import EnglishSearchResult from "./components/search/EnglishSearchResult"
 // import KanjiSearchResult from "./components/search/KanjiSearchResult"
-import KanjiCharacterModal from "./components/modal/KanjiCharacterModal";
+// import KanjiCharacterModal from "./components/modal/KanjiCharacterModal";
 
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
@@ -41,7 +41,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      {/* <KanjiCharacterModal /> */}
       <Switch>
           <Route path="/" exact={true}>
             <Splashpage />

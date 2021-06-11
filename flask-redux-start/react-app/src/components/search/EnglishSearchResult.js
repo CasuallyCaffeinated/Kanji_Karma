@@ -70,10 +70,3 @@ function EnglishSearchResult() {
 }
 
 export default EnglishSearchResult
-
-
-//  {/* <Box bg="tomato" height="375px" width="250px"></Box>
-//   <Box bg="tomato" height="375px" width="250px"></Box>
-//  <Box bg="tomato" height="375px" width="250px"></Box>
-//   <Box bg="tomato" height="375px" width="250px"></Box>
-//   <Box bg="tomato" height="375px" width="250px"></Box> */}

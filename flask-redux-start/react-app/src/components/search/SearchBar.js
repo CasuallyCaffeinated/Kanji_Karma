@@ -1,6 +1,6 @@
-import React, {useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { Flex, Input, Box, FormControl, InputGroup, Button } from "@chakra-ui/react";
+import { Flex, Input, Box, Button } from "@chakra-ui/react";
 
 import { getKanji, getMeanings } from "../../store/search";
 
@@ -21,13 +21,7 @@ function SearchBar() {
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')
 
-    // const { query } = useParams()
 
-    // console.log("TEST TEST, HERE IS THE RESULT", searchResult);
-
-    // console.log("PROP IN OBJ", searchResult?.kanjiCharacter);
-
-    // let searched;
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -60,9 +54,7 @@ function SearchBar() {
            value={searchTerm}
            bgColor="blackAlpha.600"/>
            <Button onClick={handleSearch} marginLeft="5px" ><Search2Icon /></Button>
-           {/* { !searched && */}
             <KanjiCharacterModal />
-        {/* } */}
            </Box>
            </form>
        </Flex>
