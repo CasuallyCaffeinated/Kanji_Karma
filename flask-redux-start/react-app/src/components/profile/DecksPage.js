@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getDecksThatBelongToUser } from "../../store/users"
 
-import { Flex, Box } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
+
+import Deck from "./Deck"
 
 function DecksPage() {
 
@@ -32,11 +34,11 @@ function DecksPage() {
                      justify="space-evenly"
                      align="center"
                      key={idx}
-
                      >
                         {
                             singleUser?.decks.map((deck, index) => {
-                                return <Box margin="10px" key={index}>{deck.deckName}</Box>
+                                return <Deck key={index} deck={deck} />
+                                // <Box margin="10px" key={index}>{deck.deckName}</Box> -- IT WORKS!
                             })
                         }
                      </Flex>
