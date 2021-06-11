@@ -23,10 +23,10 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
         return;
     }
-    
+
     dispatch(setUser(data))
   }
-  
+
   export const login = (email, password) => async (dispatch)  => {
     const response = await fetch('/api/auth/login', {
       method: 'POST',
@@ -39,33 +39,36 @@ export const authenticate = () => async (dispatch) => {
       })
     });
     const data = await response.json();
+    const id = data.id
     if (data.errors) {
         return data;
+    } else {
+      dispatch(setUser(data))
+      return id;
     }
-    
-    dispatch(setUser(data))
-    return {};
+
   }
-  
+
   export const logout = () => async (dispatch) => {
     const response = await fetch("/api/auth/logout", {
       headers: {
         "Content-Type": "application/json",
       }
     });
-    
+
     const data = await response.json();
     dispatch(removeUser());
   };
-  
-  
-  export const signUp = (username, email, password) => async (dispatch)  => {
+
+
+  export const signUp = (name, username, email, password) => async (dispatch)  => {
     const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        name,
         username,
         email,
         password,
@@ -75,7 +78,7 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
         return data;
     }
-    
+
     dispatch(setUser(data))
     return {};
   }

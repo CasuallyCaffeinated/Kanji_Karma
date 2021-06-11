@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 
+import { Box, Button, Input, FormLabel, FormControl } from "@chakra-ui/react"
+
+import "./auth.css";
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -26,38 +30,47 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to={`/profile/${user.id}`} />;
   }
 
   return (
     <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error) => (
-          <div>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
+      <Box>
+        <FormControl isRequired>
+        <FormLabel htmlFor="email">Email</FormLabel>
+        <Input
           name="email"
           type="text"
           placeholder="Email"
           value={email}
           onChange={updateEmail}
         />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
+        </FormControl>
+      </Box>
+      <Box>
+        <FormControl isRequired>
+        <FormLabel htmlFor="password">Password</FormLabel>
+        <Input
           name="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
-      </div>
+        </FormControl>
+        <Button type="submit" colorScheme="purple"
+        marginY="15px"
+        >Login</Button>
+        <Box
+        color="red.600"
+        >
+        {errors.map((error) => (
+          <Box>{error}</Box>
+        ))}
+      </Box>
+      </Box>
     </form>
   );
 };

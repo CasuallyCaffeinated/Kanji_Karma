@@ -3,6 +3,7 @@
 //* CONSTANTS
 const GET_USERS = "users/GET_USERS";
 const GET_USER = "users/GET_USER";
+const GET_USER_CHARACTERS = "users/GET_USER_CHARACTERS"
 const EDIT_USER = "users/EDIT_USER";
 const DELETE_CARD_FROM_USER = "users/DELETE_CARD_FROM_USER";
 
@@ -18,6 +19,11 @@ const getOneUser = (user) => ({
     payload: user
 });
 
+const getAllUserCharacters = (user_chars) => ({
+    type: GET_USER_CHARACTERS,
+    payload: user_chars
+})
+
 const editOneUser = (user) => ({
     type: EDIT_USER,
     payload: user
@@ -28,6 +34,8 @@ const deleteCardFromUser = (user) =>  ({
     payload: user
 })
 
+//! ADD A GET ALL CHARS THAT A USER OWNS THUNK
+
 
 //* THUNKS
 //! Get all
@@ -36,7 +44,7 @@ export const getAllUsers = () => async dispatch => {
 
     if (response.ok) {
         const data = await response.json();
-        await dispatch(getUsers(data.users))
+        dispatch(getUsers(data.users)) //? AWAIT may be required?
     } else {
         return {errors: "An error occurred. Please try again."}
     }
@@ -47,10 +55,22 @@ export const getUser = (id) => async dispatch => {
     const response = await fetch(`/api/users/${id}`)
     if (response.ok) {
         const data = await response.json()
-        await dispatch(getOneUser(data))
+        dispatch(getOneUser(data)) //? AWAIT may be required?
     } else {
         return {errors: "An error occurred. Please try again."}
     }
+}
+
+//! Get all characters that belong to a user
+export const getCharsThatBelongToUser = (id) => async dispatch => {
+        const res = await fetch(`/api/users/${id}/chars`)
+
+        if (res.ok) {
+            const data = await res.json()
+            dispatch(getAllUserCharacters(data))
+        } else {
+            return {errors: "An error occurred, Please try again."}
+        }
 }
 
 //! Edit
@@ -85,7 +105,7 @@ export const removeCardFromUser = (userId, cardId) => async dispatch => {
             'Content-Type': "application/json"
         },
         body: JSON.stringify({
-            cardId
+            characterId: cardId
         })
     })
     const data = await response.json()
@@ -112,6 +132,11 @@ export default function userReducer(state = initialState, action) {
             newState.users = action.payload;
                 return newState
 
+        case GET_USER_CHARACTERS:
+            newState = Object.assign({}, state)
+            newState.users = action.payload
+                return newState;
+
         case EDIT_USER:
             newState = Object.assign({}, state);
             newState.users[action.payload.id] = action.payload;
@@ -119,7 +144,7 @@ export default function userReducer(state = initialState, action) {
 
         case DELETE_CARD_FROM_USER:
             newState = Object.assign({}, state)
-            delete newState.user[action.payload] //? NOTE TO SELF: CHECK THIS OUT LATER IF IT THROWS AN ERROR
+            delete newState.users[action.payload] //? NOTE TO SELF: CHECK THIS OUT LATER IF IT THROWS AN ERROR
                 return newState;
 
         default:

@@ -1,1 +1,37 @@
 /* TODO Add site wide styles */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Domine&family=Fira+Sans:wght@200&family=Lato:wght@300&family=Merriweather:wght@300&family=Shippori+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+/* Setting all elements to border-box */
+* {
+    box-sizing: border-box;
+}
+
+/* Body css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* This is where all of the general themes will go. Color themes, font family, etc. */
+:root {
+/* Colors */
+--japanese-violet: #562151;
+--tulip: #FB8987;
+--japanese-red: #BE0029;
+--japanese-pink: #FFB7C5;
+--pastel-gray: #CFCFC4;
+--lg-gray: #e0e0da;
+
+/* Fonts */
+--cursive: ‘Courgette’, cursive;
+--domine-serif: ‘Domine’, serif;
+--merriweather-serif: ‘Merriweather’, serif;
+--fira-sans: ‘Fira Sans’, sans-serif;
+--lato-sans: ‘Lato’, sans-serif;
+--japanese-text: ‘Shippori Mincho’, serif;
+--permanent-marker: 'Permanent Marker', cursive;
+}
+
+
+/* Scrollbar Test Styles */

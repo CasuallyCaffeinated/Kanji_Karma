@@ -1,0 +1,23 @@
+/* Splashpage body styles */
+@import "../../index.css";
+
+.main-container {
+    background: #fff;
+}
+
+.heading.one {
+    font-family: var(--domine-serif);
+}
+
+.jp-welcome {
+    font-family: var(--japanese-text);
+}
+
+.informational.hero {
+    font-family: var(--fira-sans);
+}
+
+/* Footer */
+.footer {
+    background-color: rgb(214, 211, 211);
+}

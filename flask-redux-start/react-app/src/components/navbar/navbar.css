@@ -1,0 +1,118 @@
+@import "../../index.css";
+
+/* From the NavBar component */
+.main-nav {
+    /* background-color: var(--pastel-gray); */
+    background-color: rgb(214, 211, 211);
+    position: fixed;
+    top: 0;
+}
+
+
+/* Styles for the Logo component */
+
+
+/* Styles for the Discover Japanese Button */
+.dj-box {
+    border: 3px solid #fff;
+    border-radius: 8px;
+    padding: 3px 20px;
+}
+
+.dj-box:hover {
+    background-color: var(--japanese-red);
+    color: #fff;
+    transition: all ease-in 350ms;
+    cursor: pointer;
+}
+
+.dj-btn {
+    font-family: var(--cursive);
+
+    text-decoration: none;
+    outline: none;
+    outline-offset: none;
+    height: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    padding: 0px 10px;
+}
+
+.dj-link {
+    font-size: 1.15rem;
+    text-decoration: none;
+    outline-offset: 0px!important;
+    outline: none!important;
+    transition: none!important;
+}
+
+
+.dj-link:hover {
+    text-decoration: none!important;
+    outline: none!important;
+    outline-offset: none!important;
+}
+
+/* Styles for the search bar */
+.search-container {
+    outline: none;
+    font-size: 1.2rem;
+    font-family: var(--domine-serif);
+}
+
+
+.search-bar.input {
+        position: relative;
+        padding: 15px 40px 15px 20px;
+        width: 300px;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 100;
+        letter-spacing: 2px;
+
+        border: 3px solid #fff;
+        border-radius: 5px;
+
+        /* background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%); */
+        transition: width 0.65s ease;
+        outline: none;
+
+        /* /* background-color: var(--japanese-red); */
+
+        /* background-color: rgba(86,33,81,0.6) */
+
+      }
+
+      /* background-color: rgba(86,33,81,0.9) */
+    /* .search-bar.input:focus {
+        width: 300px;
+        background-color: rgba(0, 0, 0, 0.24);
+
+
+    } */
+
+      .icon{
+        position: relative;
+        right: -10px;
+      }
+
+      .icon:focus {
+          position: relative;
+          right: -200px;
+      }
+
+      .search-bar.input::placeholder {
+          color: white;
+      }
+
+  /* Sign Up / Log In Dropdown Style */
+  .chakra-collapse {
+      position: absolute;
+      z-index: 1;
+      top: 48px;
+      right: 4.75rem;
+  }
+
+  .navbar.dropdown.or.logout.btn {
+
+  }

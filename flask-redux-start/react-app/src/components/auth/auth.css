@@ -1,0 +1,11 @@
+@import "../../index.css";
+
+  .heading.one {
+   font-family: var(--permanent-marker);
+  }
+
+
+  .form.input {
+    border: 1px solid black;
+    background-color: white;
+  }
