@@ -4,6 +4,7 @@
 const GET_USERS = "users/GET_USERS";
 const GET_USER = "users/GET_USER";
 const GET_USER_CHARACTERS = "users/GET_USER_CHARACTERS"
+const GET_USER_DECKS = "users/GET_USER_DECKS"
 const EDIT_USER = "users/EDIT_USER";
 const DELETE_CARD_FROM_USER = "users/DELETE_CARD_FROM_USER";
 
@@ -22,6 +23,11 @@ const getOneUser = (user) => ({
 const getAllUserCharacters = (user_chars) => ({
     type: GET_USER_CHARACTERS,
     payload: user_chars
+})
+
+const getAllUserDecks = (user_decks) => ({
+    type: GET_USER_DECKS,
+    payload: user_decks
 })
 
 const editOneUser = (user) => ({
@@ -71,6 +77,17 @@ export const getCharsThatBelongToUser = (id) => async dispatch => {
         } else {
             return {errors: "An error occurred, Please try again."}
         }
+}
+
+export const getDecksThatBelongToUser = (id) => async dispatch => {
+    const res = await fetch(`/api/users/${id}/decks`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(getAllUserDecks(data))
+    } else {
+        return {errors: "An error occurred, Please try again."}
+    }
 }
 
 //! Edit
@@ -134,6 +151,11 @@ export default function userReducer(state = initialState, action) {
 
         case GET_USER_CHARACTERS:
             newState = Object.assign({}, state)
+            newState.users = action.payload
+                return newState;
+
+        case GET_USER_DECKS:
+            newState = Object.assign({}, state);
             newState.users = action.payload
                 return newState;
 

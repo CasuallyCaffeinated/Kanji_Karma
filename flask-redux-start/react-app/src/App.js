@@ -11,7 +11,7 @@ import SignUpPage from "./components/auth/SignUpPage"
 import LoginPage from "./components/auth/LoginPage"
 import UserProfile from "./components/profile/UserProfile"
 import CharacterInventory from "./components/profile/CharacterInventory"
-
+import DecksPage from "./components/profile/DecksPage"
 import EnglishSearchResult from "./components/search/EnglishSearchResult"
 // import KanjiSearchResult from "./components/search/KanjiSearchResult"
 // import KanjiCharacterModal from "./components/modal/KanjiCharacterModal";
@@ -56,6 +56,9 @@ function App() {
           </Route>
           <Route path="/me/:id/inventory">
             <CharacterInventory />
+          </Route>
+          <Route path="/me/:id/decks">
+              <DecksPage />
           </Route>
           <Route path="/search/:query">
             <EnglishSearchResult />

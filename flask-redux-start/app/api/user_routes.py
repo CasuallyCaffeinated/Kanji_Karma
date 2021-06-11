@@ -43,6 +43,12 @@ def users_chars(id):
     return user.to_dict_characters()
 
 
+#############* GET USER'S DECKS #############
+@user_routes.route('/<int:id>/decks')
+def user_decks(id):
+    user = User.query.get(id)
+    return user.to_dict_decks()
+
 
 #############* EDIT USER INFO #############
 @user_routes.route("/<int:id>", methods=["PUT"])

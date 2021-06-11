@@ -76,7 +76,7 @@ function UserProfile() {
                     >
                         <Box className="inventory-msg">My Decks</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handleClick}>Decks</Button>
+                            <Button colorScheme="blackAlpha" onClick={handlePushToDecks}>Decks</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の山札</Box>
                     </Flex>
