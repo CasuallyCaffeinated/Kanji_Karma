@@ -1,10 +1,10 @@
 import React from 'react'
-import { Flex, Box, Stack, Button } from "@chakra-ui/react"
+import { Flex, Box, Stack, Button, Link } from "@chakra-ui/react"
 
 import "./homepage/sp.css"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FaGithub } from "react-icons/fa"
+
+import { FaGithub, FaLinkedinIn, FaTwitter, FaAngellist } from "react-icons/fa"
 
 
 function Footer() {
@@ -18,6 +18,7 @@ function Footer() {
         pos="fixed"
         bottom="0"
         className="footer"
+        bgColor="blackAlpha.200"
         >
             <Flex
                    align="center"
@@ -27,15 +28,18 @@ function Footer() {
                    >
             <Stack
                direction="row"
-               bgColor="whiteAlpha.900"
+
                pos="fixed"
                bottom="10px"
+               spacing="25px"
+               align="center"
+               justify="center"
                >
-                   <Box><FaGithub fontSize={'35px'}/></Box>
-                   <Box>Logo</Box>
-                   <Box>My name</Box>
-                   <Box>Logo</Box>
-                   <Box>Logo</Box>
+                   <Box as="button"><Link href="https://github.com/Christian-Cozma" isExternal><FaGithub fontSize={'35px'}/></Link></Box>
+                   <Box><Link href="https://www.linkedin.com/in/christian-cozma-9847431ba/" isExternal><FaLinkedinIn fontSize={'35px'}/></Link></Box>
+                   <Box fontSize={'30px'}>Christian Cozma</Box>
+                   <Box><Link href="https://angel.co/u/christian-cozma" isExternal><FaAngellist fontSize={'35px'}/></Link></Box>
+                   <Box><Link href="https://twitter.com/cozma_christian" isExternal textDecoration="none"><FaTwitter fontSize={'35px'}/></Link></Box>
                </Stack>
         </Flex>
         </Flex>
