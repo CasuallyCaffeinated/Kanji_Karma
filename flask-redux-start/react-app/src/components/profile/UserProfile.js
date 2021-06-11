@@ -4,7 +4,8 @@ import { Flex, Box, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { useParams, useHistory } from "react-router-dom"
-
+import { getCharsThatBelongToUser } from "../../store/users"
+import { getDecksThatBelongToUser } from "../../store/users"
 
 
 import "./profile.css";
@@ -17,8 +18,16 @@ function UserProfile() {
 
     const history = useHistory()
 
-    const handleClick = () => {
+    const dispatch = useDispatch()
+
+    const handlePushToInventory = () => {
+        dispatch(getCharsThatBelongToUser(id))
         history.push(`/me/${id}/inventory`)
+    }
+
+    const handlePushToDecks = () => {
+        dispatch(getDecksThatBelongToUser(id))
+        history.push(`/me/${id}/decks`)
     }
 
     return (
@@ -29,8 +38,10 @@ function UserProfile() {
 
         >
             <Box className="parent"
-            w="100%"
+            w="60%"
             h="100%"
+            bgColor="white"
+            margin="auto"
             >
                 <Flex className="div1"
                 justify="center"
@@ -38,7 +49,7 @@ function UserProfile() {
 
                 >
                     <Flex
-                    w="65%"
+                    w="85%"
                     h="55%"
                     bgColor="purple.200"
                     border="3px solid black"
@@ -49,7 +60,7 @@ function UserProfile() {
                     >
                         <Box className="inventory-msg">My inventory</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handleClick} >Inventory</Button>
+                            <Button colorScheme="blackAlpha" onClick={handlePushToInventory} >Inventory</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の目録</Box>
                     </Flex>
@@ -61,7 +72,7 @@ function UserProfile() {
                 align="center"
                 >
                     <Flex
-                    w="65%"
+                    w="85%"
                     h="55%"
                     bgColor="purple.200"
                     border="3px solid black"
@@ -72,7 +83,7 @@ function UserProfile() {
                     >
                         <Box className="inventory-msg">My Decks</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handleClick}>Decks</Button>
+                            <Button colorScheme="blackAlpha" onClick={handlePushToDecks}>Decks</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の山札</Box>
                     </Flex>
@@ -87,13 +98,13 @@ function UserProfile() {
                 align="center"
                 >
                     <Flex
-                    w="80%"
+                    w="100%"
                     h="100%"
                     align="center"
                     justify="center"
                     className='profile-header'
                     >
-                        <Box>Welcome to your profile {user && user.name ? user?.name : user?.username}</Box>
+                        <Box textAlign="center">Welcome to your profile, {user && user.name ? user?.name : user?.username}</Box>
                     </Flex>
                 </Flex>
 
@@ -106,7 +117,7 @@ function UserProfile() {
                 align="center"
                 >
                     <Flex
-                    w="80%"
+                    w="100%"
                     h="100%"
                     align="center"
                     justify="center"

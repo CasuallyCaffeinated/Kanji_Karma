@@ -1,12 +1,10 @@
 @import '../../index.css';
 
 .flex-container-2 {
-   background: url("https://media.discordapp.net/attachments/716919293270556702/851290480528326666/tumblr_753c6408f2a5c68abf71e5cbf56950f0_fda9b63b_2048_-_Copy.jpg?width=841&height=867")
-   no-repeat
-   center center
-   fixed;
+   background: url("https://media.discordapp.net/attachments/716919293270556702/851290480528326666/tumblr_753c6408f2a5c68abf71e5cbf56950f0_fda9b63b_2048_-_Copy.jpg")
+   center center;
    background-position: cover;
-
+   width: 100vw;
 }
 
 
@@ -36,10 +34,13 @@
     font-family: var(--japanese-text);
     font-style: italic;
     font-weight: 900;
-    font-size: 2.3rem;
-    color: rgba(255, 255, 255, 0.856);
-
+    font-size: 1.9rem;
+    /* color: rgba(255, 255, 255, 0.856);
+     */
+    color: black;
 }
+
+
 
 .inventory-msg:nth-child(1) {
     font-weight: 700;

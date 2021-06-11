@@ -32,6 +32,8 @@ def deck(id):
     deck = Deck.query.get(id)
     return deck.to_dict()
 
+
+###################? GET ALL CHARS IN DECK ###################
 @decks_routes.route("/<int:id>/chars")
 def get_decks_characters(id):
     deck = Deck.query.get(id)
