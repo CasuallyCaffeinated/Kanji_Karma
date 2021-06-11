@@ -12,7 +12,6 @@ import {
     ModalHeader,
     ModalCloseButton,
     ModalBody,
-    ModelFooter,
     useDisclosure } from "@chakra-ui/react"
 
 
@@ -34,7 +33,7 @@ function EnglishCharInfo({result}) {
             return
         }
         dispatch(addACard(result.id, user.id))
-
+        onClose()
     }
 
 

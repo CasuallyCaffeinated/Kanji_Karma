@@ -5,11 +5,8 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
-    ModalCloseButton,
     useDisclosure,
-    useOutsideClick,
     Button,
     Box,
     Stack,
@@ -21,12 +18,15 @@ import { closeKanjiModal } from "../../store/search";
 
 import { useSelector, useDispatch } from "react-redux";
 
+import { addACard } from "../../store/characters";
+
 function KanjiCharacterModal() {
 
     const { onClose, onOpen, isOpen } = useDisclosure()
     const dispatch = useDispatch()
     const modalStatus = useSelector(state => state.searchReducer.showKanji)
     const searchResults = useSelector(state => state.searchReducer.searchResults)
+    const user = useSelector(state => state.session.user)
 
     console.log("SEARCH RESULTS", searchResults);
 
@@ -45,8 +45,14 @@ function KanjiCharacterModal() {
         onClose()
     }
 
-    if (!searchResults) {
-        return null
+
+    const onAdd = () => {
+
+                if (!searchResults[0]) {
+                    return
+            }
+        dispatch(addACard(searchResults[0].id, user.id))
+        onClose()
     }
 
     console.log("SEARCH V2", searchResults);
@@ -60,14 +66,17 @@ function KanjiCharacterModal() {
                 <ModalHeader>Kanji Search Result:</ModalHeader>
                 <ModalBody>
         {searchResults ?
-
-
+                <>
+                {user ?
+                <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add.</Button>
+                :
+                null
+            }
                 <Box
           w="250px"
           h="375px"
           boxShadow="xl"
           rounded="lg"
-        //   bgColor="blackAlpha.100"
           overflowY="auto"
           >
               <Box
@@ -198,6 +207,7 @@ function KanjiCharacterModal() {
                   </Stack>
               </Box>
         </Box>
+        </>
         :
         null
          }
