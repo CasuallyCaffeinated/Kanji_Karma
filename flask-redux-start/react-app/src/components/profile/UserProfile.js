@@ -17,8 +17,12 @@ function UserProfile() {
 
     const history = useHistory()
 
-    const handleClick = () => {
+    const handlePushToInventory = () => {
         history.push(`/me/${id}/inventory`)
+    }
+
+    const handlePushToDecks = () => {
+        history.push(`/me/${id}/decks`)
     }
 
     return (
@@ -49,7 +53,7 @@ function UserProfile() {
                     >
                         <Box className="inventory-msg">My inventory</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handleClick} >Inventory</Button>
+                            <Button colorScheme="blackAlpha" onClick={handlePushToInventory} >Inventory</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の目録</Box>
                     </Flex>

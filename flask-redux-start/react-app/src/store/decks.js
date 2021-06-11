@@ -2,7 +2,8 @@
 
 //* CONSTANTS
 const GET_DECKS = "decks/GET_DECKS"
-const GET_DECK = "decks/GET_DECKS"
+const GET_DECK = "decks/GET_DECK"
+const GET_DECK_CHARACTERS = "decks/GET_DECK_CHARACTERS"
 const ADD_DECK = "decks/ADD_DECK"
 const ADD_CHAR_TO_DECK = "decks/ADD_CHAR_TO_DECK"
 const UPDATE_DECK = "decks/UPDATE_DECK"
@@ -18,6 +19,11 @@ const getDecks = (decks) => ({
 
 const getOneDeck = (deck) => ({
     type: GET_DECK,
+    payload: deck
+})
+
+const getADecksCharacters = (deck) => ({
+    type: GET_DECK_CHARACTERS,
     payload: deck
 })
 
@@ -73,6 +79,17 @@ export const getDeck = (id) => async dispatch => {
         await dispatch(getOneDeck(data))
     } else {
         return {errors: "An error occurred. Please try again."}
+    }
+}
+
+export const getAllCharsThatBelongToADeck = (id) => async dispatch => {
+    const res = await fetch(`/api/decks/${id}/chars`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(getADecksCharacters(data))
+    } else {
+        return {errors: "An error occurred, Please try again."}
     }
 }
 
@@ -199,6 +216,11 @@ export default function deckReducer(state = initialState, action) {
             newState = Object.assign({}, state);
             newState.decks = action.payload;
                 return newState
+
+        case GET_DECK_CHARACTERS:
+            newState = Object.assign({}, state)
+            newState.decks = action.payload;
+                return newState;
 
         case ADD_DECK:
             newState = Object.assign({}, state)
