@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+  const [errors, setErrors] = useState([]);
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -22,10 +23,15 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
     if (password === repeatPassword) {
-      dispatch(signUp(name, username, email, password))
+     const data = await dispatch(signUp(name, username, email, password))
+     if (data?.errors) {
+       setErrors(data.errors);
     }
-  };
+  }
+}
+
 
   if (user) {
     history.push(`/profile/${user.id}`)
@@ -56,6 +62,17 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <Box>
+        {errors ?
+      <Box
+        color="red.600"
+        >
+        {errors?.map((error) => (
+          <Box key={error}>{error}</Box>
+        ))}
+      </Box>
+        :
+        null
+      }
         <FormLabel className="form label" >
           Name
         </FormLabel>
@@ -135,6 +152,7 @@ const SignUpForm = () => {
       marginY="10px"
       >
       <Button type="submit" colorScheme="purple">Sign Up</Button>
+
       </Box>
     </form>
   );

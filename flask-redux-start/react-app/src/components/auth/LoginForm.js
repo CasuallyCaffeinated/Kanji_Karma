@@ -66,8 +66,8 @@ const LoginForm = () => {
         <Box
         color="red.600"
         >
-        {errors.map((error) => (
-          <Box>{error}</Box>
+        {errors.map((error, idx) => (
+          <Box key={idx}>{error}</Box>
         ))}
       </Box>
       </Box>
