@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { editDeck, removeDeck, createDeck } from "../../store/decks";
 import { getDecksThatBelongToUser } from "../../store/users"
 
+import { useParams } from "react-router-dom";
+
 import {
     Box,
     Stack,
@@ -14,16 +16,24 @@ import {
     ModalOverlay,
     ModalContent,
     ModalBody,
-    useDisclosure
+    ModalHeader,
+    ModalCloseButton,
+    FormControl,
+    FormLabel,
+    Input,
+    useDisclosure,
+
 } from "@chakra-ui/react"
 
 import { FaRegEdit } from "react-icons/fa"
 
 function Deck({deck, setIsLoading, isLoading}) {
 
-    const { onClose, onOpen, isOpen, onToggle } = useDisclosure()
+    const { onClose, onOpen, isOpen } = useDisclosure()
     const [show, setShow] = useState()
 
+    const [deckName, setDeckName] = useState("")
+    const [category, setCategory] = useState("")
 
     const dispatch = useDispatch()
 
@@ -35,21 +45,80 @@ function Deck({deck, setIsLoading, isLoading}) {
         if (!deck) {
             return
         }
-        console.log(deck.id)
+        // console.log(deck.id)
         await dispatch(removeDeck(deck?.id))
         setIsLoading(!isLoading)
         setShow(!show)
     }
 
-    // useEffect(() => {
+    const { id } = useParams()
 
-    // }, [dispatch, isLoading])
+    const editDeck = () => {
+
+
+        const formData = {
+            deckId: deck?.id,
+            deckName,
+            category,
+            userId: id
+        }
+        if (deckName) formData.deckName = deckName
+        if (category) formData.category = category
+        dispatch(editDeck(formData))
+        onClose()
+    }
 
     return (
     <>
 
         {/* //? Edit deck modal: */}
+        <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                <ModalHeader>Edit a deck</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody pb={6}>
+                        <form onSubmit={editDeck}>
+                            <FormControl isRequired>
+                            <FormLabel>
+                                Deck name
+                            </FormLabel>
+                            <Box>
+                            <Input
+                            type="text"
+                            name="deckName"
+                            onChange={(e) => setDeckName(e.target.value)}
+                            value={deckName}
+                            required={true}
+                            >
+                            </Input>
+                            </Box>
+                            </FormControl>
 
+
+                            <FormControl>
+                            <FormLabel>
+                                Category
+                            </FormLabel>
+                            <Box>
+                            <Input
+                            type="text"
+                            name="category"
+                            onChange={(e) => setCategory(e.target.value)}
+                            value={category}
+                            required={true}
+                            >
+                            </Input>
+                            </Box>
+                            </FormControl>
+
+
+                            <Button margin="5px" colorScheme="purple" onClick={editDeck}>Edit</Button>
+                            <Button onClick={onClose} margin="5px" colorScheme="red">I've changed my mind.</Button>
+                        </form>
+                </ModalBody>
+                </ModalContent>
+            </Modal>
 
 
         {/* //? Collapse with the two buttons */}
@@ -67,7 +136,7 @@ function Deck({deck, setIsLoading, isLoading}) {
           shadow="lg"
       >
       <Stack w="100%">
-        <Button colorScheme="blue">Edit a deck</Button>
+        <Button colorScheme="blue" onClick={onOpen}>Edit a deck</Button>
         <Button colorScheme="red" onClick={onDelete}>Delete a deck</Button>
         </Stack>
         </Box>
