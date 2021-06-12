@@ -50,12 +50,24 @@ function LoggedinInUserOptions() {
                         <Box>
                             {location.pathname === `/me/${user?.id}/inventory` ?
                            <Link to={`/me/${user?.id}/decks`}>
-                           <Button w="150px">My Decks</Button>
+                           <Button w="150px">My decks</Button>
                            </Link>
                             :
                              <Link to={`/me/${user?.id}/inventory`}>
-                             <Button w="150px">My Inventory</Button>
+                             <Button w="150px">My inventory</Button>
                              </Link>
+                            }
+                        </Box>
+                        <Box>
+                            {
+                            location.pathname !== `/profile/${user?.id}` ?
+                            <Link to={`/profile/${user?.id}`}>
+                                <Button w="150px">
+                                        My Profile
+                                </Button>
+                            </Link>
+                            :
+                            null
                             }
                         </Box>
                         <Box>
