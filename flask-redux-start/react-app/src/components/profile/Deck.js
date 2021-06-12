@@ -31,12 +31,12 @@ function Deck({deck, setIsLoading, isLoading}) {
 
     console.log("TESTING THE ID", deck.id);
 
-    const onDelete = () => {
+    const onDelete = async () => {
         if (!deck) {
             return
         }
         console.log(deck.id)
-        dispatch(removeDeck(deck?.id))
+        await dispatch(removeDeck(deck?.id))
         setIsLoading(!isLoading)
         setShow(!show)
     }
@@ -67,7 +67,6 @@ function Deck({deck, setIsLoading, isLoading}) {
           shadow="lg"
       >
       <Stack w="100%">
-        <Button colorScheme="red">Add a deck</Button>
         <Button colorScheme="blue">Edit a deck</Button>
         <Button colorScheme="red" onClick={onDelete}>Delete a deck</Button>
         </Stack>
