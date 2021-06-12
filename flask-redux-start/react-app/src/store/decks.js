@@ -94,12 +94,12 @@ export const getAllCharsThatBelongToADeck = (id) => async dispatch => {
 }
 
 //! Create one deck
-export const createDeck = (id, {
+export const createDeck = ({
     deckName,
     category,
     userId
 }) => async dispatch => {
-    const res = await fetch(`/api/decks/${id}`, {
+    const res = await fetch(`/api/decks/`, {
         method: `POST`,
         headers: {
             'Content-Type': "application/json"
