@@ -138,12 +138,12 @@ export const addCharCardToDeck= (deckId, cardId) => async dispatch => {
 }
 
 //! Update deck
-export const editDeck = (id, {
+export const editDeck = (deckId, {
     deckName,
     category,
     userId
 }) => async dispatch => {
-    const res = await fetch(`/api/decks/${id}`, {
+    const res = await fetch(`/api/decks/${deckId}`, {
         method: `PUT`,
         headers: {
             'Content-Type': 'application/json'

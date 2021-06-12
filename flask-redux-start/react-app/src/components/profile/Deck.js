@@ -53,11 +53,13 @@ function Deck({deck, setIsLoading, isLoading}) {
 
     const { id } = useParams()
 
-    const editDeck = (e) => {
-        e.preventDefault()
+    const editDeck = () => {
+
 
         const formData = {
-            id: deck?.id,
+            deckId: deck?.id,
+            deckName,
+            category,
             userId: id
         }
         if (deckName) formData.deckName = deckName
