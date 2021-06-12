@@ -40,7 +40,7 @@ function UserProfile() {
             <Box className="parent"
             w="60%"
             h="100%"
-            bgColor="white"
+            bgColor="whitesmoke"
             margin="auto"
             >
                 <Flex className="div1"
@@ -51,16 +51,17 @@ function UserProfile() {
                     <Flex
                     w="85%"
                     h="55%"
-                    bgColor="purple.200"
+                    bgColor="red.200"
                     border="3px solid black"
                     borderRadius={10}
                     align="center"
                     justify="center"
                     direction="column"
+                    className="card bgColor"
                     >
                         <Box className="inventory-msg">My inventory</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handlePushToInventory} >Inventory</Button>
+                            <Button rounded="xl" colorScheme="blackAlpha" onClick={handlePushToInventory} marginY="40px">Inventory</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の目録</Box>
                     </Flex>
@@ -74,16 +75,17 @@ function UserProfile() {
                     <Flex
                     w="85%"
                     h="55%"
-                    bgColor="purple.200"
+                    bgColor="red.200"
                     border="3px solid black"
                     borderRadius={10}
                     align="center"
                     justify="center"
                     direction="column"
+                    className="card bgColor"
                     >
-                        <Box className="inventory-msg">My Decks</Box>
+                        <Box className="inventory-msg">My decks</Box>
                         <Box>
-                            <Button colorScheme="blackAlpha" onClick={handlePushToDecks}>Decks</Button>
+                            <Button rounded="xl" colorScheme="blackAlpha" onClick={handlePushToDecks} marginY="40px">Decks</Button>
                         </Box>
                         <Box className="inventory-msg-2">私の山札</Box>
                     </Flex>

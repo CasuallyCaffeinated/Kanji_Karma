@@ -53,7 +53,7 @@ function EnglishCharInfo({result}) {
                 <ModalHeader>Add this character?</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody pb={6}>
-                        <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add.</Button>
+                        <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add</Button>/Button>
                         <Button onClick={onClose} margin="5px" colorScheme="red">I've changed my mind.</Button>
                 </ModalBody>
                 </ModalContent>

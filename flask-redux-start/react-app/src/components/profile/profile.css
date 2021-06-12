@@ -40,6 +40,10 @@
     color: black;
 }
 
+.card.bgColor {
+    background: rgb(190,0,41);
+    background: radial-gradient(circle, rgba(190,0,41,1) 39%, rgba(255,255,255,1) 42%);
+}
 
 
 .inventory-msg:nth-child(1) {
