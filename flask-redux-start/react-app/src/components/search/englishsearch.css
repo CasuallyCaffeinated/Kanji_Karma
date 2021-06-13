@@ -1,0 +1,7 @@
+@import "../../index.css";
+
+
+.english-search-bg {
+    background: rgb(135,95,154);
+background: linear-gradient(180deg, rgba(135,95,154,0.654499299719888) 0%, rgba(255,255,255,1) 100%);
+}
