@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import {  useParams } from "react-router-dom"
 
 import { Flex, SimpleGrid, Heading, Box } from "@chakra-ui/react"
+
+import { getMeanings } from '../../store/search'
 
 import EnglishCharInfo from "./EnglishCharInfo"
 
 function EnglishSearchResult() {
 
     const user = useSelector(state => state.session.user)
+    const { query } = useParams()
+    const dispatch = useDispatch()
     const searchResult = useSelector(state => state.searchReducer.searchResults)
     const [searchValues, setSearchValues] = useState([])
 
@@ -17,12 +22,13 @@ function EnglishSearchResult() {
 
     useEffect(() => {
 
-
         if (searchResult) {
             setSearchValues([...searchResult])
-
+        } else {
+            dispatch(getMeanings(query))
         }
-    }, [searchResult])
+
+    }, [searchResult, dispatch])
 
     return (
         <>
