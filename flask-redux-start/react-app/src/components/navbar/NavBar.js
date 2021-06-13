@@ -17,7 +17,7 @@ const NavBar = () => {
     >
       <Flex align="center" justify="space-around" w="100%">
           <Logo />
-          <DiscoverJapanese />
+          {/* <DiscoverJapanese /> */}
           <SearchBar />
           <UserButtons />
       </Flex>

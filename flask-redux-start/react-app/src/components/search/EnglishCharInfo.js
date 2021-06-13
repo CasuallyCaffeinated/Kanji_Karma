@@ -53,7 +53,7 @@ function EnglishCharInfo({result}) {
                 <ModalHeader>Add this character?</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody pb={6}>
-                        <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add</Button>/Button>
+                        <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add</Button>
                         <Button onClick={onClose} margin="5px" colorScheme="red">I've changed my mind.</Button>
                 </ModalBody>
                 </ModalContent>
@@ -68,6 +68,7 @@ function EnglishCharInfo({result}) {
         //   bgColor="blackAlpha.100"
           overflowY="auto"
           >
+              {result.kanjiCharacter ?
               <Box
               bgColor="red.600"
               >
@@ -75,6 +76,9 @@ function EnglishCharInfo({result}) {
                         {result.kanjiCharacter}
                   </Text>
               </Box>
+              :
+              <Box>Search Error: Word not found. Please try again!</Box>
+            }
 
               <Box
               h="74.3%"
@@ -132,7 +136,7 @@ function EnglishCharInfo({result}) {
                     null
                     }
 
-                    {result.meanings ?
+                    {result?.meanings ?
                     <Flex
                     justify="space-between"
                     flexWrap="wrap"

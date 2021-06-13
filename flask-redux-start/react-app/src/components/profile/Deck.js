@@ -53,19 +53,19 @@ function Deck({deck, setIsLoading, isLoading}) {
 
     const { id } = useParams()
 
-    const editDeck = () => {
+    const updateDeck = async (e) => {
+        e.preventDefault()
 
 
         const formData = {
-            deckId: deck?.id,
-            deckName,
-            category,
             userId: id
         }
-        if (deckName) formData.deckName = deckName
-        if (category) formData.category = category
-        dispatch(editDeck(formData))
+        if (deckName.length !== 0) formData.deckName = deckName
+        if (category.length !== 0) formData.category = category
+        await dispatch(editDeck(deck.id, formData))
+        setIsLoading(!isLoading)
         onClose()
+        setShow(!show)
     }
 
     return (
@@ -78,7 +78,7 @@ function Deck({deck, setIsLoading, isLoading}) {
                 <ModalHeader>Edit a deck</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody pb={6}>
-                        <form onSubmit={editDeck}>
+                        <form onSubmit={updateDeck}>
                             <FormControl isRequired>
                             <FormLabel>
                                 Deck name
@@ -113,7 +113,7 @@ function Deck({deck, setIsLoading, isLoading}) {
                             </FormControl>
 
 
-                            <Button margin="5px" colorScheme="purple" onClick={editDeck}>Edit</Button>
+                            <Button margin="5px" colorScheme="purple" onClick={updateDeck}>Edit</Button>
                             <Button onClick={onClose} margin="5px" colorScheme="red">I've changed my mind.</Button>
                         </form>
                 </ModalBody>
@@ -155,13 +155,13 @@ function Deck({deck, setIsLoading, isLoading}) {
             h="200px"
             border="5px solid black"
             borderRadius={10}
-            bgColor="red.600"
+            className="card bgColor-smaller"
             >
-                <Text fontSize="1.5rem" color="white" textAlign="center">
+                <Text fontSize="1.5rem" color="black" textAlign="center">
                     {deck.deckName}
                 </Text>
                 <hr />
-                <Text  fontSize="1rem" color="white" textAlign="center">
+                <Text  fontSize="1rem" color="black" textAlign="center">
                     {
                         deck.category ?
                             deck.category

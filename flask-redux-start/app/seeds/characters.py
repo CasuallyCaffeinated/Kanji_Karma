@@ -5,7 +5,7 @@ import json
 
 def seed_characters():
 
-    response = requests.get('https://kanjiapi.dev/v1/kanji/grade-1')
+    response = requests.get('https://kanjiapi.dev/v1/kanji/jouyou')
     characters = response.json()
 
     for character in characters:
