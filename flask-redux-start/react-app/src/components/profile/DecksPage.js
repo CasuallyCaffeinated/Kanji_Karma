@@ -68,6 +68,7 @@ function DecksPage() {
              rounded="lg"
              align="center"
              justify="center"
+             className="deckpage flex-container"
              >
 
                 <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose}>
@@ -134,7 +135,19 @@ function DecksPage() {
                      justify="space-evenly"
                      align="center"
                      key={idx}
+                     className="single-deck bgColor"
                      >
+                         {/* {
+                         singleUser?.decks ?
+                         <Box
+                        pos="absolute"
+                        zIndex="1"
+                        bottom="550px"
+                        className="my-decks"
+                         >My decks</Box>
+                         :
+                         null
+                        } */}
                         {
                             singleUser?.decks?.map((deck, index) => {
                                 return <Deck key={index} deck={deck} setIsLoading={setIsLoading} isLoading={isLoading} />
