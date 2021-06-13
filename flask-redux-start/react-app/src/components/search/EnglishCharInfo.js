@@ -65,7 +65,7 @@ function EnglishCharInfo({result}) {
           h="375px"
           boxShadow="xl"
           rounded="lg"
-        //   bgColor="blackAlpha.100"
+          bgColor="white"
           overflowY="auto"
           >
               {result.kanjiCharacter ?

@@ -8,6 +8,8 @@ import { getMeanings } from '../../store/search'
 
 import EnglishCharInfo from "./EnglishCharInfo"
 
+import "./englishsearch.css";
+
 function EnglishSearchResult() {
 
     const user = useSelector(state => state.session.user)
@@ -33,11 +35,12 @@ function EnglishSearchResult() {
     return (
         <>
         <Flex
-        h="80vh"
+        h="90vh"
         w="100vw"
         align="center"
         justify="center"
         flexWrap="wrap"
+        className="english-search-bg"
         >
         <Box
             w="500px"
@@ -49,6 +52,10 @@ function EnglishSearchResult() {
                 bold="normal"
                 className="heading one"
                 color="red.600"
+                border="2px solid black"
+                borderRadius="5px"
+                padding="10px"
+                bgColor="white"
                 >
                 Search result:
                 </Heading>
