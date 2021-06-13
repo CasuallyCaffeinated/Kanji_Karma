@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
     Modal,
@@ -20,6 +20,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { addACard } from "../../store/characters";
 
+import { getCharsThatBelongToUser } from "../../store/users"
+
 function KanjiCharacterModal() {
 
     const { onClose, onOpen, isOpen } = useDisclosure()
@@ -28,7 +30,9 @@ function KanjiCharacterModal() {
     const searchResults = useSelector(state => state.searchReducer.searchResults)
     const user = useSelector(state => state.session.user)
 
-    console.log("SEARCH RESULTS", searchResults);
+    const [loadKanji, setLoadKanji] = useState(false)
+
+    // console.log("SEARCH RESULTS", searchResults);
 
     useEffect(() => {
         if (modalStatus) {
@@ -38,6 +42,13 @@ function KanjiCharacterModal() {
         }
 
     }, [modalStatus])
+
+    useEffect(() => {
+        if(!user) {
+            return null
+        }
+        dispatch(getCharsThatBelongToUser(user.id))
+    }, [loadKanji])
 
 
     const handleClose = () => {
@@ -52,10 +63,11 @@ function KanjiCharacterModal() {
                     return
             }
         dispatch(addACard(searchResults[0].id, user.id))
+        setLoadKanji(!loadKanji)
         onClose()
     }
 
-    console.log("SEARCH V2", searchResults);
+    // console.log("SEARCH V2", searchResults);
 
     return (
         <>
@@ -68,7 +80,7 @@ function KanjiCharacterModal() {
         {searchResults ?
                 <>
                 {user ?
-                <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add.</Button>
+                <Button margin="5px" colorScheme="twitter" onClick={onAdd}>Add</Button>
                 :
                 null
             }
@@ -79,6 +91,7 @@ function KanjiCharacterModal() {
           rounded="lg"
           overflowY="auto"
           >
+              {searchResults[0]?.kanjiCharacter ?
               <Box
               bgColor="red.600"
               >
@@ -86,6 +99,9 @@ function KanjiCharacterModal() {
                         {searchResults[0].kanjiCharacter}
                   </Text>
               </Box>
+              :
+              null
+            }
 
               <Box
               h="74.3%"
@@ -96,7 +112,7 @@ function KanjiCharacterModal() {
                   textAlign="end"
                   padding={2}
                   >
-                      {searchResults[0].grade ?
+                      {searchResults[0]?.grade ?
                     <Flex
                     justify="space-between"
                     >
@@ -108,7 +124,7 @@ function KanjiCharacterModal() {
                     }
 
 
-                    {searchResults[0].strokeCount ?
+                    {searchResults[0]?.strokeCount ?
                     <Flex
                     justify="space-between"
                     >
@@ -120,7 +136,7 @@ function KanjiCharacterModal() {
                     }
 
 
-                    {searchResults[0].jlpt ?
+                    {searchResults[0]?.jlpt ?
                     <Flex
                     justify="space-between"
                     >
@@ -132,7 +148,7 @@ function KanjiCharacterModal() {
                     }
 
 
-                    {searchResults[0].heisigEn ?
+                    {searchResults[0]?.heisigEn ?
                     <Flex
                     justify="space-between"
                     >
@@ -194,7 +210,7 @@ function KanjiCharacterModal() {
                     }
 
 
-                    {searchResults[0].unicode ?
+                    {searchResults[0]?.unicode ?
                     <Flex
                     justify="space-between"
                     >
