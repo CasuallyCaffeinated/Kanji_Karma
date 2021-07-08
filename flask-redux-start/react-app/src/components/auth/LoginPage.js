@@ -10,12 +10,13 @@ function LoginPage() {
         <>
             <Flex
             w="100vw"
-            h="100vh"
+            h="100%"
             className="flex-container"
             direction="column"
             flex-wrap="nowrap"
             justify="center"
             align="center"
+            overflowY="hidden"
             >
                  <Box
                 w="500px"
@@ -34,7 +35,7 @@ function LoginPage() {
 
                 <Box
                 w="20%"
-                h="50%"
+                h="100%"
                 border="5px solid black"
                 padding={5}
                 borderRadius="2xl"

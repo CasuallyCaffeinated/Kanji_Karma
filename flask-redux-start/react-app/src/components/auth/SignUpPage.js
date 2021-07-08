@@ -11,12 +11,13 @@ function SignUpPage() {
     <>
         <Flex
         w="100vw"
-        h="100vh"
+        h="100%"
         className="flex-container"
         direction="column"
         flex-wrap="nowrap"
         justify="center"
         align="center"
+        overflowY="hidden"
         >
              <Box
             w="500px"
