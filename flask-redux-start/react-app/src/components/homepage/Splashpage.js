@@ -6,13 +6,16 @@ import "./sp.css";
 
 function Splashpage() {
     return (
-        <Flex minH="90vh"
+        <Flex
         width="100vw"
         px={8}
         marginY="10%"
         className="main-container"
         justifyContent="space-evenly"
-        align="left">
+        align="left"
+        // minH="90vh"
+        overflowY="hidden"
+        >
             <Stack
             spacing={4}
             w="50%"
