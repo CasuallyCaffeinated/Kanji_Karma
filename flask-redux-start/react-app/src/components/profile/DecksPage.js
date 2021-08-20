@@ -41,8 +41,7 @@ function DecksPage() {
 
         dispatch(getDecksThatBelongToUser(id))
         dispatch(getAllDecks())
-        // setIsLoading(true)
-    }, [dispatch, isLoading, loadingState])
+    }, [dispatch, isLoading, loadingState, id])
 
     const addDeckToProfile = (e) => {
             e.preventDefault()

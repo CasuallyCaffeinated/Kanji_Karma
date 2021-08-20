@@ -74,31 +74,3 @@ function CharacterInventory() {
 }
 
 export default CharacterInventory
-
-{/* <Box
-        w="100vw"
-        h="80vh"
-        >
-       <Box
-       w="80%"
-       h="200px"
-       pos="relative"
-       top="50%"
-       left="20%"
-       >
-           {
-               Object.values(userCharacters).map(u_char =>
-                <Box
-                pos="relative"
-                top="30%"
-                > { u_char ?
-                u_char.characters.map(character => {
-                    return <Box>{character?.kanjiCharacter}</Box>
-                })
-                :
-                null
-                }</Box>
-                )
-           }
-       </Box>
-       </Box>  */}

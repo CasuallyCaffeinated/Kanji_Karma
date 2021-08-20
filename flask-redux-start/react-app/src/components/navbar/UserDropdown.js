@@ -3,7 +3,7 @@ import { useDisclosure, Button, Collapse, Box, Stack } from "@chakra-ui/react";
 
 import { login } from "../../store/session"
 
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 
 import { useHistory } from "react-router-dom";
 
@@ -19,13 +19,6 @@ function UserDropdown() {
         const demoUserPageLoader = async () => {
             dispatch(login('demo@aa.io', 'password')).then(res => history.push(`/profile/${res}`))
         }
-
-        // useEffect(() => {
-        //     if (user){
-        //     }
-
-        // }, [dispatch, user])
-
 
     return (
         <>
