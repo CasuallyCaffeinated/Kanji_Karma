@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useDisclosure, Button, Collapse, Box, Stack } from "@chakra-ui/react";
 
 import { login } from "../../store/session"
@@ -13,7 +13,6 @@ function UserDropdown() {
         const { isOpen, onToggle } = useDisclosure()
 
         const dispatch = useDispatch()
-        const user = useSelector(state => state.session.user)
 
         const history = useHistory()
 

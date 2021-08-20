@@ -7,8 +7,6 @@ import { Button, Collapse, Stack,  Box, useDisclosure} from "@chakra-ui/react"
 import { HamburgerIcon } from "@chakra-ui/icons"
 import { Link, useHistory, useLocation } from "react-router-dom"
 
-import { getCharsThatBelongToUser } from "../../store/users"
-import { useParams } from "react-router-dom"
 
 function LoggedinInUserOptions() {
 

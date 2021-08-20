@@ -16,7 +16,6 @@ import KanjiCharacterModal from "../modal/KanjiCharacterModal"
 function SearchBar() {
 
     const dispatch = useDispatch()
-    const searchResult = useSelector(state => state.searchReducer.searchResults)
 
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')
