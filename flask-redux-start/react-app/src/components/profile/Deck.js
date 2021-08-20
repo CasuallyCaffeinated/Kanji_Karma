@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from 'react'
+import { useDispatch} from "react-redux";
 
-import { editDeck, removeDeck, createDeck } from "../../store/decks";
-import { getDecksThatBelongToUser } from "../../store/users"
+import { editDeck, removeDeck } from "../../store/decks";
 
 import { useParams } from "react-router-dom";
 
@@ -45,7 +44,6 @@ function Deck({deck, setIsLoading, isLoading}) {
         if (!deck) {
             return
         }
-        // console.log(deck.id)
         await dispatch(removeDeck(deck?.id))
         setIsLoading(!isLoading)
         setShow(!show)

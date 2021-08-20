@@ -27,7 +27,7 @@ function EnglishSearchResult() {
             dispatch(getMeanings(query))
         }
 
-    }, [searchResult, dispatch])
+    }, [searchResult, query, dispatch])
 
     return (
         <>
