@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Flex, Input, Box, Button } from "@chakra-ui/react";
 
 import { getKanji, getMeanings } from "../../store/search";
@@ -16,7 +16,6 @@ import KanjiCharacterModal from "../modal/KanjiCharacterModal"
 function SearchBar() {
 
     const dispatch = useDispatch()
-    const searchResult = useSelector(state => state.searchReducer.searchResults)
 
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')

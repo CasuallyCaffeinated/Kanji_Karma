@@ -12,15 +12,12 @@ import "./englishsearch.css";
 
 function EnglishSearchResult() {
 
-    const user = useSelector(state => state.session.user)
+
     const { query } = useParams()
     const dispatch = useDispatch()
     const searchResult = useSelector(state => state.searchReducer.searchResults)
     const [searchValues, setSearchValues] = useState([])
 
-    // const [isLoading, setIsLoading] = useState(false)
-    // setIsLoading(true) setIsLoading(false)
-    // console.log("SEARCH RESULTS", searchResult)
 
     useEffect(() => {
 
@@ -30,7 +27,7 @@ function EnglishSearchResult() {
             dispatch(getMeanings(query))
         }
 
-    }, [searchResult, dispatch])
+    }, [searchResult, query, dispatch])
 
     return (
         <>

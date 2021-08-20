@@ -23,7 +23,7 @@ function Character({character}) {
     useEffect(() => {
         dispatch(getCharsThatBelongToUser(id))
 
-    }, [dispatch, isLoading])
+    }, [dispatch, id, isLoading])
 
     return (
       <Box

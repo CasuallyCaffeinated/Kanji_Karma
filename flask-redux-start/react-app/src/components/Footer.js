@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box, Stack, Button, Link } from "@chakra-ui/react"
+import { Flex, Box, Stack, Link } from "@chakra-ui/react"
 
 import "./homepage/sp.css"
 

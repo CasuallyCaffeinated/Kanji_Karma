@@ -1,9 +1,9 @@
 import React from 'react';
 import UserButtons from './UserButtons';
 import Logo from "./Logo"
-import DiscoverJapanese from "./DiscoverJapanese"
 import SearchBar from "../search/SearchBar"
 import { Flex, Box } from "@chakra-ui/react";
+// import DiscoverJapanese from "./DiscoverJapanese" //? To be implemented
 
 
 import "./navbar.css";

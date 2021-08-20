@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Flex, Link } from "@chakra-ui/react";
+import { Box, Flex, Link } from "@chakra-ui/react";
 
 import "./navbar.css";
 

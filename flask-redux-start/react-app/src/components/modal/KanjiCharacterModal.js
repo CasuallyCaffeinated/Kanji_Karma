@@ -41,14 +41,14 @@ function KanjiCharacterModal() {
             return null
         }
 
-    }, [modalStatus])
+    }, [modalStatus, onOpen])
 
     useEffect(() => {
         if(!user) {
             return null
         }
         dispatch(getCharsThatBelongToUser(user.id))
-    }, [loadKanji])
+    }, [loadKanji, dispatch, user])
 
 
     const handleClose = () => {
