@@ -7,7 +7,7 @@ import { getAllDecks } from "../../store/decks"
 
 import { useParams } from "react-router-dom"
 
-import { Box, Flex, Heading } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
 
 import Character from "./Character"
 
