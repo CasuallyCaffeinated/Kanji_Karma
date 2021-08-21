@@ -65,34 +65,39 @@ function Splashpage() {
                 if you ever plan on visiting Japan!
                 All this and more with the help of Kanji Karma!
             </Heading>
+
             <Stack
-            align="center"
-            justify="center"
             direction="row"
             >
-            <Link to="/sign-up">
-                <Button
-                bgColor="purple.200"
-                borderRadius="8px"
-                p="10px"
-                size="md"
-                lineHeight="1.5"
-                >
-                    New To Kanji Karma? Sign Up!
-                </Button>
-            </Link>
-            <Button
+                 <Button
             onClick={demoUserPageLoader}
-            bgColor="blue.200"
-            borderRadius="10px"
+            bgColor="orange.100"
+            color="blackAlpha.800"
+            borderRadius="8px"
             w="52%"
             p="10px"
             size="md"
             lineHeight="1.5"
+            _hover={{ backgroundColor: "orange.200" }}
             >
                 Demo User Login!
             </Button>
+
+            <Link to="/sign-up">
+                <Button
+                bgColor="purple.100"
+                color="blackAlpha.800"
+                borderRadius="8px"
+                p="10px"
+                size="md"
+                lineHeight="1.5"
+                _hover={{ backgroundColor: "purple.200" }}
+                >
+                    New To Kanji Karma? Sign Up!
+                </Button>
+            </Link>
             </Stack>
+
             </Stack>
             <Box
             w="60%"
