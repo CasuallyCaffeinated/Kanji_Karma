@@ -28,7 +28,6 @@ function CharacterInventory() {
         <Flex
         w="100vw"
         h="auto"
-        // bgColor="purple.50"
         align="center"
         justify="center"
         marginY="5%"
@@ -59,7 +58,6 @@ function CharacterInventory() {
                         flexWrap="wrap"
                         key={idx}
                         >{userChar?.characters?.map(character => {
-                            // return <Box>{character.kanjiCharacter}</Box>
                             return <Character key={character.id} character={character} />
                         })}</Flex>
                         )

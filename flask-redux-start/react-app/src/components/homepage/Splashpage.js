@@ -1,10 +1,20 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-import { Flex, Box, Stack, Heading, Button, Image } from "@chakra-ui/react"
+import React from 'react';
+import { Link, useHistory } from "react-router-dom";
+import { login } from "../../store/session";
+import { useDispatch} from "react-redux";
+import { Flex, Box, Stack, Heading, Button, Image } from "@chakra-ui/react";
 
 import "./sp.css";
 
 function Splashpage() {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const demoUserPageLoader = async () => {
+        dispatch(login('demo@aa.io', 'password')).then(res => history.push(`/profile/${res}`))
+    }
+
     return (
         <Flex
         width="100vw"
@@ -13,7 +23,6 @@ function Splashpage() {
         className="main-container"
         justifyContent="space-evenly"
         align="left"
-        // minH="90vh"
         overflowY="hidden"
         >
             <Stack
@@ -56,17 +65,34 @@ function Splashpage() {
                 if you ever plan on visiting Japan!
                 All this and more with the help of Kanji Karma!
             </Heading>
+            <Stack
+            align="center"
+            justify="center"
+            direction="row"
+            >
             <Link to="/sign-up">
                 <Button
-                bgColor="purple.100"
+                bgColor="purple.200"
                 borderRadius="8px"
-                p="8px"
+                p="10px"
                 size="md"
                 lineHeight="1.5"
                 >
-                    New to Kanji Karma? Sign Up!
+                    New To Kanji Karma? Sign Up!
                 </Button>
             </Link>
+            <Button
+            onClick={demoUserPageLoader}
+            bgColor="blue.200"
+            borderRadius="10px"
+            w="52%"
+            p="10px"
+            size="md"
+            lineHeight="1.5"
+            >
+                Demo User Login!
+            </Button>
+            </Stack>
             </Stack>
             <Box
             w="60%"

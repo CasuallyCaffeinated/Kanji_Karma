@@ -16,6 +16,7 @@ function UserDropdown() {
 
         const history = useHistory()
 
+        //? This is the function for having the demo user log in
         const demoUserPageLoader = async () => {
             dispatch(login('demo@aa.io', 'password')).then(res => history.push(`/profile/${res}`))
         }
