@@ -19,17 +19,12 @@ function LoggedinInUserOptions() {
 
     console.log(location.pathname);
 
-    // const { id } = useParams()
 
     const onLogout = async (e) => {
         dispatch(logout());
         history.push("/")
       };
 
-    //   const toggleInventory = () => {
-    //       dispatch(getCharsThatBelongToUser(id))
-    //       history.push(`/me/${id}/inventory`)
-    //   }
 
     return (
         <>
@@ -73,9 +68,6 @@ function LoggedinInUserOptions() {
                             <Button w="150px" onClick={onLogout}>Logout</Button>
                             </Link>
                         </Box>
-                        {/* <Box>
-                            <Button w="150px" onClick={demoUserPageLoader}>Demo User Login</Button>
-                        </Box> */}
                     </Stack>
                 </Box>
             </Collapse>
