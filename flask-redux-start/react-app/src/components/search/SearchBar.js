@@ -9,7 +9,7 @@ import { useHistory } from 'react-router';
 
 import KanjiCharacterModal from "../modal/KanjiCharacterModal"
 
-// ^[ a-zA-Z]*$
+//? Regex: ^[ a-zA-Z]*$
 
 
 
@@ -37,7 +37,6 @@ function SearchBar() {
             let kanjiArray =  Object.values(searchTerm)
             dispatch(getKanji(kanjiArray))
             setSearchTerm('')
-            // return <KanjiSearchResult searchResult={searchResult} />
         }
     }
 
