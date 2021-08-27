@@ -3,7 +3,7 @@ import UserButtons from './UserButtons';
 import Logo from "./Logo"
 import SearchBar from "../search/SearchBar"
 import { Flex, Box } from "@chakra-ui/react";
-// import DiscoverJapanese from "./DiscoverJapanese" //? To be implemented
+
 
 
 import "./navbar.css";
@@ -17,7 +17,6 @@ const NavBar = () => {
     >
       <Flex align="center" justify="space-around" w="100%">
           <Logo />
-          {/* <DiscoverJapanese /> */}
           <SearchBar />
           <UserButtons />
       </Flex>
@@ -27,31 +26,3 @@ const NavBar = () => {
 }
 
 export default NavBar;
-
-//  <nav>
-//       <ul>
-//         <li>
-//           <NavLink to="/" exact={true} activeClassName="active">
-//             Home
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to="/login" exact={true} activeClassName="active">
-//             Login
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to="/sign-up" exact={true} activeClassName="active">
-//             Sign Up
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to="/users" exact={true} activeClassName="active">
-//             Users
-//           </NavLink>
-//         </li>
-//         <li>
-
-//         </li>
-//       </ul>
-//     </nav>

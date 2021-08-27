@@ -25,7 +25,6 @@ function EnglishCharInfo({result}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const user = useSelector(state => state.session.user)
-    // const character = useSelector(state => state.searchReducer.searchResults)
     const dispatch = useDispatch()
 
     const onAdd = () => {
