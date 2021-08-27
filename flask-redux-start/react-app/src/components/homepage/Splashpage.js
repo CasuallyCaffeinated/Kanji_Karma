@@ -118,35 +118,3 @@ function Splashpage() {
 }
 
 export default Splashpage
-
-
-// {/* <Flex
-//                 justify="center"
-//                 align="center"
-//                 background="gray.100"
-//                 w="50%"
-//                 h="100%">
-//                         Testing
-//                 </Flex>
-//                 <Flex
-//                  justify="center"
-//                  align="center"
-//                  background="blue.200"
-//                  w="50%"
-//                  h="100%"
-//                 >
-//                     <Box
-//                     h="25%"
-//                     bgColor="black"
-//                     color= "whiteAlpha.600"
-//                     >
-//                         Test 1
-//                     </Box>
-//                     <Box
-//                     h="75%"
-//                     bgColor="black"
-//                     color= "whiteAlpha.600"
-//                     >
-//                         Test 2
-//                     </Box>
-//                 </Flex> */}
