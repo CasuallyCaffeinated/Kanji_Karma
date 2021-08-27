@@ -32,7 +32,7 @@ function KanjiCharacterModal() {
 
     const [loadKanji, setLoadKanji] = useState(false)
 
-    // console.log("SEARCH RESULTS", searchResults);
+
 
     useEffect(() => {
         if (modalStatus) {
@@ -67,11 +67,11 @@ function KanjiCharacterModal() {
         onClose()
     }
 
-    // console.log("SEARCH V2", searchResults);
+
 
     return (
         <>
-        {/* <Button onClick={onOpen}></Button> */}
+
         <Modal onClose={handleClose} isOpen={isOpen} isCentered>
             <ModalOverlay />
             <ModalContent>
@@ -105,7 +105,6 @@ function KanjiCharacterModal() {
 
               <Box
               h="74.3%"
-            //   bgColor="pink"
               >
                   <Stack
                   spacing="1rem"
